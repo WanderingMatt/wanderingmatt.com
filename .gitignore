@@ -1,4 +1,5 @@
 log/*.log
+log/**/*
 tmp/**/*
 # Other useful tidbits
 .DS_Store
