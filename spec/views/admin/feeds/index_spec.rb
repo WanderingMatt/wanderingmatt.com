@@ -7,4 +7,9 @@ describe '/admin/feeds/index' do
     response.should have_tag('h2', 'Feeds')
   end
   
+  it 'should show an "Add a New Feed" link' do
+    render '/admin/feeds/index'
+    response.should have_tag('a', 'Add a New Feed')
+  end
+  
 end

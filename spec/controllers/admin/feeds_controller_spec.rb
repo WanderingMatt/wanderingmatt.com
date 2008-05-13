@@ -45,3 +45,20 @@ describe Admin::FeedsController, 'GET #index' do
   end
 
 end
+
+describe Admin::FeedsController, 'GET #new' do
+  
+  before :each do
+    controller.stub!(:authenticate).and_return(true)
+  end
+  
+  def do_get
+    get :new
+  end
+  
+  it "should be successful" do
+    do_get
+    response.should be_success
+  end
+  
+end
