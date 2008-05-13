@@ -6,6 +6,27 @@ describe Admin::FeedsController do
     controller.should be_an_instance_of(Admin::FeedsController)
   end
   
+  it "should fail with no name and password" do
+    get :index
+    response.should_not be_success
+    response.headers["Status"].should =~ /401/
+  end
+  
+  it "should fail with invalid name and password" do
+    @credentials = ActionController::HttpAuthentication::Basic.encode_credentials("carrie", "bug")
+    request.env['HTTP_AUTHORIZATION'] = @credentials
+    get :index
+    response.should_not be_success
+    response.headers["Status"].should =~ /401/
+  end
+  
+  it "should be a success with valid name and password" do
+    @credentials = ActionController::HttpAuthentication::Basic.encode_credentials("admin", "password")
+    request.env['HTTP_AUTHORIZATION'] = @credentials
+    get :index
+    response.should be_success
+  end
+  
 end
 
 describe Admin::FeedsController, 'GET #index' do
