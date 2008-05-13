@@ -1,0 +1,185 @@
+  [4;36;1mSQL (0.000203)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000077)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000068)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:20:20) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+  [4;35;1mSQL (0.000125)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000282)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000081)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000059)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:20:23) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+  [4;35;1mSQL (0.000128)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000203)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:20:53) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00259 (386 reqs/sec) | Rendering: 0.00019 (7%) | DB: 0.00034 (13%) | 200 OK [http://test.host/admin/feeds]
+  [4;35;1mSQL (0.000113)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000234)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000081)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000059)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:20:56) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00262 (381 reqs/sec) | Rendering: 0.00019 (7%) | DB: 0.00037 (14%) | 200 OK [http://test.host/admin/feeds]
+  [4;35;1mSQL (0.000133)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000198)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000057)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000069)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000125)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000072)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000202)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000078)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000057)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:24:12) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00264 (379 reqs/sec) | Rendering: 0.00019 (7%) | DB: 0.00034 (12%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000122)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000163)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000069)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000075)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000057)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:44:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00270 (369 reqs/sec) | Rendering: 0.00020 (7%) | DB: 0.00033 (12%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000128)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000173)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000075)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:45:49) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00276 (361 reqs/sec) | Rendering: 0.00022 (7%) | DB: 0.00033 (11%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000138)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000069)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000057)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:46:12) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00266 (376 reqs/sec) | Rendering: 0.00020 (7%) | DB: 0.00033 (12%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000142)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000071)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000198)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000079)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:46:37) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00269 (371 reqs/sec) | Rendering: 0.00022 (8%) | DB: 0.00033 (12%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000150)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000067)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000075)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:46:57) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00267 (374 reqs/sec) | Rendering: 0.00021 (7%) | DB: 0.00033 (12%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000152)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000134)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000068)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000211)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000077)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000059)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:47:41) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00277 (361 reqs/sec) | Rendering: 0.00022 (8%) | DB: 0.00035 (12%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000152)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000144)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000070)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000199)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:48:03) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.09667 (10 reqs/sec) | Rendering: 0.00026 (0%) | DB: 0.00033 (0%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000164)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000200)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000057)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:48:06) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00260 (385 reqs/sec) | Rendering: 0.00019 (7%) | DB: 0.00033 (12%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000121)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000208)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:49:26) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00311 (321 reqs/sec) | Rendering: 0.00030 (9%) | DB: 0.00034 (10%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000130)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000068)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000202)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 19:49:29) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00272 (367 reqs/sec) | Rendering: 0.00023 (8%) | DB: 0.00034 (12%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000130)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000173)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000075)[0m   [0mROLLBACK[0m

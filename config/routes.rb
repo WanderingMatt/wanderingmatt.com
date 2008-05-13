@@ -36,6 +36,14 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  # map.connect ':controller/:action/:id'
+  # map.connect ':controller/:action/:id.:format'
+  
+  # Admin Routes
+  
+  map.namespace :admin do |admin|
+    admin.root :controller => 'feeds'
+    admin.resources :feeds
+  end
+  
 end
