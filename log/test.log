@@ -183,3 +183,16 @@ Completed in 0.00272 (367 reqs/sec) | Rendering: 0.00023 (8%) | DB: 0.00034 (12%
   [4;35;1mSQL (0.000130)[0m   [0mROLLBACK[0m
   [4;36;1mSQL (0.000173)[0m   [0;1mBEGIN[0m
   [4;35;1mSQL (0.000075)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000200)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mBEGIN[0m
+
+
+Processing FeedsController#index (for 0.0.0.0 at 2008-05-13 20:30:44) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"admin/feeds"}
+Rendering admin/feeds/index
+Completed in 0.00266 (375 reqs/sec) | Rendering: 0.00019 (7%) | DB: 0.00033 (12%) | 200 OK [http://test.host/admin]
+  [4;35;1mSQL (0.000122)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000154)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000067)[0m   [0mROLLBACK[0m
