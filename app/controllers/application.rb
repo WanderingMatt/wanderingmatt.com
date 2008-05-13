@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  
   helper :all # include all helpers, all the time
 
   # See ActionController::RequestForgeryProtection for details
@@ -12,4 +13,13 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+  
+  private
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |name, password|
+      name == 'admin' && password == 'password'
+    end
+  end
+  
 end
