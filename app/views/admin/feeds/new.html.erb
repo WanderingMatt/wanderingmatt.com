@@ -1,5 +1,11 @@
 <h2>Add a New Feed</h2>
-<p><%= link_to 'Cancel', admin_root_path %></p>
 
-<% #form_for Feed.new, :url => admin_feeds_path do |f| %>
-<% #end %>
+<% form_for Feed.new, :url => admin_feeds_path do |f| %>
+	
+	<%= render :partial => "admin/feeds/form", :locals => { :f => f } %>
+	
+	<div class="submit">
+		<p><%= f.submit 'Add Feed' %> or <%= link_to 'Cancel', admin_root_path %></p>
+	</div>
+
+<% end %>
