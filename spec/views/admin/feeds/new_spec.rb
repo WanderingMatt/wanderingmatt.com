@@ -7,4 +7,9 @@ describe '/admin/feeds/new' do
     response.should have_tag('h2', 'Add a New Feed')
   end
   
+  it 'should show the new form' do
+    render '/admin/feeds/new'
+    response.should have_tag('form[action=?]', admin_feeds_path)
+  end
+  
 end
