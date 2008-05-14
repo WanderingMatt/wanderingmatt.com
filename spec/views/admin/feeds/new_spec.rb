@@ -17,9 +17,11 @@ describe '/admin/feeds/new' do
     response.should have_tag('input[type=submit][value=?]', 'Add Feed')
   end
   
-  it 'should render the feed form partial' do
-    template.expect_render(:partial => 'admin/feeds/form')
+  it 'should show a field to enter name' do
     render '/admin/feeds/new'
+    response.should have_tag('input[type=text][id=?]', 'feed_name')
   end
+  
+  it 'should show a field to enter url'
   
 end

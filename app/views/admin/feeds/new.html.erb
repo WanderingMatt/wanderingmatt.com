@@ -2,10 +2,14 @@
 
 <% form_for Feed.new, :url => admin_feeds_path do |f| %>
 	
-	<%= render :partial => "admin/feeds/form", :locals => { :f => f } %>
-	
-	<div class="submit">
-		<p><%= f.submit 'Add Feed' %> or <%= link_to 'Cancel', admin_root_path %></p>
-	</div>
+	<fieldset>
+		
+		<%= render :partial => "admin/feeds/form", :locals => { :f => f } %>
+
+		<div class="submit">
+			<p><%= f.submit 'Add Feed' %> or <%= link_to 'Cancel', admin_root_path %></p>
+		</div>
+		
+	</fieldset>
 
 <% end %>
