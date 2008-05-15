@@ -35,7 +35,10 @@ describe '/admin/feeds/index' do
   describe 'with some feeds' do
     
     before :each do
-      assigns[:feeds] = [mock_model(Feed), mock_model(Feed)]
+      assigns[:feeds] = [
+        mock_model(Feed, :name => 'Something', :url => 'http://www.testing.com'), 
+        mock_model(Feed, :name => 'Another', :url => 'http://www.learning.com')
+      ]
     end
     
     it 'should show the feeds table' do
