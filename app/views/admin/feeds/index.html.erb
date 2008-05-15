@@ -1,3 +1,39 @@
 <h2>Feeds</h2>
 
+<%= show_flash %>
+
 <p><strong><%= link_to 'Add a New Feed', new_admin_feed_path %></strong></p>
+
+<% if @feeds %>
+
+	<table>
+		
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>URL</th>
+				<th>Items</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			
+			<% for feed in @feeds %>
+			
+				<tr>
+					<td><strong><%=h feed.name %></strong></td>
+					<td><%=h feed.url %></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			
+			<% end %>
+			
+		</tbody>
+		
+	</table>
+
+<% end %>
