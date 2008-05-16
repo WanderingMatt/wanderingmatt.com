@@ -2,6 +2,8 @@
 
 <% form_for Feed.new, :url => admin_feeds_path do |f| %>
 	
+	<%= error_messages_for :feed %>
+	
 	<fieldset>
 		
 		<%= render :partial => "admin/feeds/form", :locals => { :f => f } %>

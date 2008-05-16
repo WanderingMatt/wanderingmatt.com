@@ -112,14 +112,35 @@ describe Admin::FeedsController, 'POST #create' do
     do_post
   end
   
-  it 'should set a flash notice' do
-    do_post
-    flash[:notice].should == 'New Feed has been saved.'
+  describe 'when the new feed is saved and valid' do
+    
+    before :each do
+      @feed.stub!(:save).and_return(true)
+    end
+    
+    it 'should set a flash notice' do
+      do_post
+      flash[:notice].should == 'New Feed has been saved.'
+    end
+  
+    it 'should redirect to #index' do
+      do_post
+      response.should redirect_to admin_root_path
+    end
+    
   end
   
-  it 'should redirect to #index' do
-    do_post
-    response.should redirect_to admin_root_path
+  describe 'when the new feed is not saved becuase it is invalid' do
+    
+    before :each do
+      @feed.stub!(:save).and_return(false)
+    end
+    
+    it 'should render new template' do
+      do_post
+      response.should render_template(:new)
+    end
+    
   end
   
 end

@@ -13,9 +13,13 @@ class Admin::FeedsController < ApplicationController
   
   def create
     @feed = Feed.new(params[:feed])
-    @feed.save
-    flash[:notice] = 'New Feed has been saved.'
-    redirect_to admin_root_path
+    
+    if @feed.save
+      flash[:notice] = 'New Feed has been saved.'
+      redirect_to admin_root_path
+    else
+      render :action => 'new'
+    end
   end
   
 end
