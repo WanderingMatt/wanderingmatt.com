@@ -4,7 +4,7 @@
 
 <p><strong><%= link_to 'Add a New Feed', new_admin_feed_path %></strong></p>
 
-<% if @feeds %>
+<% unless @feeds.empty? %>
 
 	<table>
 		
@@ -27,7 +27,7 @@
 					<td><%=h feed.url %></td>
 					<td>&nbsp;</td>
 					<td><%= link_to 'Edit', edit_admin_feed_path(feed) %></td>
-					<td>&nbsp;</td>
+					<td><%= link_to 'Destroy', admin_feed_path(feed), :confirm => 'Are you sure?', :method => :delete %></td>
 				</tr>
 			
 			<% end %>

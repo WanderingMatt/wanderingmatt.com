@@ -30,11 +30,18 @@ class Admin::FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
     
     if @feed.update_attributes(params[:feed])
-      flash[:notice] = "Feed has been updated."
+      flash[:notice] = 'Feed has been updated.'
       redirect_to admin_root_path
     else
       render :action => 'edit'
     end
+  end
+  
+  def destroy
+    @feed = Feed.find(params[:id])
+    @feed.destroy
+    flash[:notice] = 'Feed has been deleted.'
+    redirect_to admin_root_path
   end
   
 end

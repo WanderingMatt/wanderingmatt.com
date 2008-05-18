@@ -237,3 +237,40 @@ describe Admin::FeedsController, 'PUT #update' do
   end
   
 end
+
+describe Admin::FeedsController, 'DELETE #destroy' do
+  
+  include FeedSpecHelper
+  
+  before :each do
+    controller.stub!(:authenticate).and_return(true)
+    @feed = mock_model(Feed, valid_feed_attributes)
+    @feed.stub!(:destroy).and_return(true)
+    Feed.stub!(:find).and_return(@feed)
+  end
+  
+  def do_delete
+    delete :destroy, :id => @feed.id.to_s
+  end
+  
+  it 'should find the feed to destroy' do
+    Feed.should_receive(:find).with(@feed.id.to_s).and_return(@feed)
+    do_delete
+  end
+  
+  it 'should destroy the feed' do
+    @feed.should_receive(:destroy).and_return(true)
+    do_delete
+  end
+  
+  it 'should set a flash notice' do
+    do_delete
+    flash[:notice].should == 'Feed has been deleted.'
+  end
+  
+  it 'should redirect to #index' do
+    do_delete
+    response.should redirect_to(admin_root_path)
+  end
+  
+end

@@ -2,6 +2,10 @@ require File.dirname(__FILE__) + '/../../../spec_helper'
 
 describe '/admin/feeds/index' do
   
+  before :each do
+    assigns[:feeds] = []
+  end
+  
   it 'should show the title' do
     render '/admin/feeds/index'
     response.should have_tag('h2', 'Feeds')
