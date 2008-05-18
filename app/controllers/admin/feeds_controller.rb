@@ -22,4 +22,19 @@ class Admin::FeedsController < ApplicationController
     end
   end
   
+  def edit
+    @feed = Feed.find(params[:id])
+  end
+  
+  def update
+    @feed = Feed.find(params[:id])
+    
+    if @feed.update_attributes(params[:feed])
+      flash[:notice] = "Feed has been updated."
+      redirect_to admin_root_path
+    else
+      render :action => 'edit'
+    end
+  end
+  
 end

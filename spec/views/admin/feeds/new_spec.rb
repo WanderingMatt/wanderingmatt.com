@@ -12,7 +12,7 @@ describe '/admin/feeds/new' do
     response.should have_tag('form[action=?]', admin_feeds_path)
   end
   
-  it 'should show the new form' do
+  it 'should show the submit button' do
     render '/admin/feeds/new'
     response.should have_tag('input[type=submit][value=?]', 'Add Feed')
   end

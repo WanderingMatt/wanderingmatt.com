@@ -2,6 +2,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe ApplicationHelper, 'flashes method' do
   
+  include ApplicationHelper
+
   it 'should return an empty string by default' do
     show_flash.should == ''
   end

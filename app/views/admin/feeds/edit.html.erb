@@ -1,0 +1,17 @@
+<h2>Edit Feed</h2>
+
+<% form_for @feed, :url => admin_feed_path(@feed) do |f| %>
+	
+	<%= error_messages_for :feed %>
+	
+	<fieldset>
+		
+		<%= render :partial => "admin/feeds/form", :locals => { :f => f } %>
+
+		<div class="submit">
+			<p><%= f.submit 'Save Feed' %> or <%= link_to 'Cancel', admin_root_path %></p>
+		</div>
+		
+	</fieldset>
+	
+<% end %>

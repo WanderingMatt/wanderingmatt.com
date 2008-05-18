@@ -1,14 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-module FeedSpecHelper
-  def valid_feed_attributes
-    {
-      :name => 'Test Feed',
-      :url => 'http://www.testing.co.uk/feed.rss'
-    }
-  end
-end
-
 describe Feed do
   
   include FeedSpecHelper

@@ -88,8 +88,10 @@ end
 
 describe Admin::FeedsController, 'POST #create' do
   
+  include FeedSpecHelper
+  
   before :each do
-    @params = { :feed => { 'name' => 'Testing Feed', 'url' => 'http://www.testing.com/feed.rss' } }
+    @params = { :feed => valid_feed_params }
     controller.stub!(:authenticate).and_return(true)
     
     @feed = mock_model(Feed)
@@ -125,7 +127,7 @@ describe Admin::FeedsController, 'POST #create' do
   
     it 'should redirect to #index' do
       do_post
-      response.should redirect_to admin_root_path
+      response.should redirect_to(admin_root_path)
     end
     
   end
@@ -139,6 +141,97 @@ describe Admin::FeedsController, 'POST #create' do
     it 'should render new template' do
       do_post
       response.should render_template(:new)
+    end
+    
+  end
+  
+end
+
+describe Admin::FeedsController, 'GET #edit' do
+  
+  include FeedSpecHelper
+  
+  before :each do
+    controller.stub!(:authenticate).and_return(true)
+    
+    @feed = mock_model(Feed, valid_feed_attributes)
+    Feed.stub!(:find).and_return(@feed)
+    
+  end
+  
+  def do_get
+    get :edit, :id => @feed.id.to_s
+  end
+  
+  it "should be successful" do
+    do_get
+    response.should be_success
+  end
+  
+  it "should render edit template" do
+    do_get
+    response.should render_template(:edit)
+  end
+  
+  it 'should find the feed to edit' do
+    Feed.should_receive(:find).with(@feed.id.to_s).and_return(@feed)
+    do_get
+  end
+  
+  it 'should assign the feed for the view' do
+    do_get
+    assigns['feed'].should equal(@feed)
+  end
+  
+end
+
+describe Admin::FeedsController, 'PUT #update' do
+  
+  include FeedSpecHelper
+  
+  before :each do
+    controller.stub!(:authenticate).and_return(true)
+    
+    @params = { :feed => valid_feed_params }
+    
+    @feed = mock_model(Feed, valid_feed_attributes)
+    @feed.stub!(:update_attributes).and_return(true)
+    Feed.stub!(:find).and_return(@feed)
+  end
+  
+  def do_put
+    put :update, :id => @feed.id.to_s
+  end
+  
+  it 'should find the feed to update' do
+    Feed.should_receive(:find).with(@feed.id.to_s).and_return(@feed)
+    do_put
+  end
+  
+  it 'should try to update the feed with the form params' do
+    @feed.should_receive(:update_attributes).and_return(true)
+    do_put
+  end
+  
+  it 'should set a flash notice' do
+    do_put
+    flash[:notice].should == 'Feed has been updated.'
+  end
+
+  it 'should redirect to #index' do
+    do_put
+    response.should redirect_to(admin_root_path)
+  end
+  
+  describe 'when the feed is not updated becuase it is invalid' do
+    
+    before :each do
+      @feed.stub!(:update_attributes).and_return(false)
+    end
+    
+    it 'should render edit template' do
+      do_put
+      response.should render_template(:edit)
     end
     
   end

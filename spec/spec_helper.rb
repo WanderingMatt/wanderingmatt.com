@@ -45,3 +45,15 @@ Spec::Runner.configure do |config|
   # 
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end
+
+module FeedSpecHelper
+  def valid_feed_attributes
+    {
+      :name => 'Test Feed',
+      :url => 'http://www.testing.co.uk/feed.rss'
+    }
+  end
+  def valid_feed_params
+    { 'name' => 'Testing Feed', 'url' => 'http://www.testing.com/feed.rss' }
+  end
+end
