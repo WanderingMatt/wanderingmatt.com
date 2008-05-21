@@ -24,3 +24,15 @@ describe Feed do
   end
   
 end
+
+#describe Feed, 'find and cache' do
+#  
+#  it 'should return true' do
+#    Feed.find_and_cache.should equal(true)
+#  end
+#  
+#  it 'should find all of the feeds' do
+#    Feed.should_receive(:find).with(:all).and_return(nil)
+#  end
+#  
+#end
