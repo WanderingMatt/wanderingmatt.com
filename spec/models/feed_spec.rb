@@ -25,6 +25,21 @@ describe Feed do
   
 end
 
+describe Feed, '#cache_all' do
+  
+  it 'should return true'
+  it 'should find all of the feeds in the database'
+  
+  describe 'for a single feed' do
+  
+    it 'should create a new URI object using the Feed url'
+    it 'should get the contents of the feed'
+    it 'should try to save a new item'
+  
+  end
+  
+end
+
 #describe Feed, 'find and cache' do
 #  
 #  it 'should return true' do

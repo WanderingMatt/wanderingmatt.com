@@ -11,7 +11,7 @@ end
 describe FeedsController, 'GET #index' do
   
   before :each do
-    Feed.stub!(:find_and_cache).and_return(true)
+    Feed.stub!(:cache_all).and_return(true)
   end
   
   def do_get
@@ -28,8 +28,8 @@ describe FeedsController, 'GET #index' do
     response.should render_template(:index)
   end
   
-  it 'should find and cache feeds' do
-    Feed.should_receive(:find_and_cache).once.and_return(true)
+  it 'should cache all feeds' do
+    Feed.should_receive(:cache_all).once.and_return(true)
     do_get
   end
   

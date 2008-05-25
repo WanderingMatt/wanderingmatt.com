@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
   
   def index
-    Feed.cache
+    Feed.cache_all
     render :layout => 'admin'
   end
   
