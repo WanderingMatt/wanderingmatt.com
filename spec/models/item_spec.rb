@@ -15,7 +15,7 @@ end
 describe Item, '#prepare_and_save' do
   
   it 'should return false' do
-    Item.prepare_and_save.should equal(false)
+    Item.prepare_and_save(nil, nil).should equal(true)
   end
   
 end

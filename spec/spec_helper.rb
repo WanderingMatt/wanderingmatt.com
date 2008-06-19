@@ -49,13 +49,56 @@ Spec::Runner.configure do |config|
 end
 
 module FeedSpecHelper
+  
   def valid_feed_attributes
     {
       :name => 'Test Feed',
       :url => 'http://www.testing.co.uk/feed.rss'
     }
   end
+  
   def valid_feed_params
     { 'name' => 'Testing Feed', 'url' => 'http://www.testing.com/feed.rss' }
   end
+  
+  def mock_xml_source
+    REXML::Document.new <<SOURCE
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Twitter / andypearson</title>
+    <link>http://twitter.com/andypearson</link>
+    <description>Twitter updates from Andy Pearson / andypearson.</description>
+    <language>en-us</language>
+    <ttl>40</ttl>
+    <item>
+      <title>andypearson: is having fun with Delicious Library 2. http://www.delicious-monster.com/</title>
+      <description>andypearson: is having fun with Delicious Library 2. http://www.delicious-monster.com/</description>
+      <pubDate>Tue, 27 May 2008 15:50:14 +0000</pubDate>
+      <guid>http://twitter.com/andypearson/statuses/820999889</guid>
+      <link>http://twitter.com/andypearson/statuses/820999889</link>
+    </item>
+    <item>
+      <title>andypearson: @mattbrett just go ahead and admit it, I saw The Matches live when they supported Motion City Soundtrack. Awesome show, never looked back.</title>
+      <description>andypearson: @mattbrett just go ahead and admit it, I saw The Matches live when they supported Motion City Soundtrack. Awesome show, never looked back.</description>
+      <pubDate>Fri, 23 May 2008 17:59:33 +0000</pubDate>
+      <guid>http://twitter.com/andypearson/statuses/818504098</guid>
+      <link>http://twitter.com/andypearson/statuses/818504098</link>
+    </item>
+    <item>
+      <title>andypearson: is on his own in a freezing office. Not a fun way to spend a Monday.</title>
+      <description>andypearson: is on his own in a freezing office. Not a fun way to spend a Monday.</description>
+      <pubDate>Mon, 19 May 2008 11:53:30 +0000</pubDate>
+      <guid>http://twitter.com/andypearson/statuses/814846813</guid>
+      <link>http://twitter.com/andypearson/statuses/814846813</link>
+    </item>
+  </channel>
+</rss>
+SOURCE
+  end
+  
+  def mock_elements
+    mock_xml_source.elements
+  end
+  
 end
