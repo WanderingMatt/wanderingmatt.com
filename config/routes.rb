@@ -48,4 +48,6 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :feeds
   
+  map.root :controller => 'items'
+  
 end
