@@ -16,21 +16,12 @@ class Feed < ActiveRecord::Base
     
     for feed in feeds
       xml = feed.xml_source
-      xml.elements.each '//item' do |item|
-        Item.prepare_and_save(feed, item)
-      end
+      #xml.elements.each '//item' do |item|
+      #  Item.prepare_and_save(feed, item)
+      #end
+      feed.cached_at = Time.zone.now.to_s(:db)
+      feed.save!
     end
   end
-  
-  #def self.cache_all
-  #  feeds = self.find(:all)
-  #  
-  #  for feed in feeds
-  #    xml = REXML::Document.new Net::HTTP.get(URI.parse(feed.url))
-  #    xml.elements.each '//item' do |item|
-  #      Item.prepare_and_save(feed, item)
-  #    end
-  #  end
-  #end
   
 end
