@@ -27,7 +27,7 @@
 					<td><strong><%=h feed.name %></strong></td>
 					<td><%=h feed.url %></td>
 					<td><%= feed.items.count %></td>
-					<td>...</td>
+					<td><%= feed.active == true ? 'Active' : 'Deactivated' %></td>
 					<td><%= link_to 'Edit', edit_admin_feed_path(feed) %></td>
 					<td><%= link_to 'Destroy', admin_feed_path(feed), :confirm => 'Are you sure?', :method => :delete %></td>
 				</tr>

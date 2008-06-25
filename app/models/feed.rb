@@ -5,14 +5,14 @@ class Feed < ActiveRecord::Base
   validates_presence_of :name, :url
   
   has_many :items
-  
+  named_scope :active, :conditions => { :active => true }
   
   def xml_source
     @xml_source ||= REXML::Document.new Net::HTTP.get(URI.parse(url))
   end
   
   def self.cache_all
-    feeds = self.find(:all)
+    feeds = self.active
     items = []
     
     for feed in feeds
