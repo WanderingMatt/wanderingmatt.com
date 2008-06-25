@@ -13,6 +13,7 @@
 				<th>Name</th>
 				<th>URL</th>
 				<th>Items</th>
+				<th>Status</th>
 				<th>&nbsp;</th>
 				<th>&nbsp;</th>
 			</tr>
@@ -25,7 +26,8 @@
 				<tr>
 					<td><strong><%=h feed.name %></strong></td>
 					<td><%=h feed.url %></td>
-					<td>&nbsp;</td>
+					<td><%= feed.items.count %></td>
+					<td>...</td>
 					<td><%= link_to 'Edit', edit_admin_feed_path(feed) %></td>
 					<td><%= link_to 'Destroy', admin_feed_path(feed), :confirm => 'Are you sure?', :method => :delete %></td>
 				</tr>

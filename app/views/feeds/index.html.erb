@@ -1,2 +1,32 @@
 <h2>Caching Feeds....</h2>
-<h3>Done!</h3>
+
+<% unless @items.empty? %>
+<% i = 0 %>
+
+	<table>
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th>Feed</th>
+				<th>Title</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<% for item in @items %>
+				<% i+=1 %>
+				<tr>
+					<td><%= i %>)&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><%=h item.feed.name %></td>
+					<td><%=h item.title %></td>
+				</tr>
+			<% end %>
+			
+		</tbody>
+	</table>
+
+	<h3>Done!</h3>
+	
+<% else %>
+	<h3>No Items have been cached.</h3>
+<% end %>

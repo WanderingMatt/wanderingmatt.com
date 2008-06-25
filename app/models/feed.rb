@@ -13,15 +13,22 @@ class Feed < ActiveRecord::Base
   
   def self.cache_all
     feeds = self.find(:all)
+    items = []
     
     for feed in feeds
       xml = feed.xml_source
-      #xml.elements.each '//item' do |item|
-      #  Item.prepare_and_save(feed, item)
-      #end
-      feed.cached_at = Time.zone.now.to_s(:db)
+      xml.elements.each '//item' do |xml_data|
+        item = Item.new
+        new_item = item.prepare_and_save(feed, xml_data)
+        if new_item
+          items << new_item
+        end
+      end
+      feed.cached_at = Time.zone.now
       feed.save!
     end
+    
+    items
   end
   
 end

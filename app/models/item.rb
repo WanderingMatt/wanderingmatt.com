@@ -1,35 +1,48 @@
 class Item < ActiveRecord::Base
   
-  require 'time'
+  belongs_to :feed
   
-  def self.prepare_and_save(feed, item)
+  def prepare_and_save(feed, xml_data)
+    self.feed_id = feed.id
+    self.cached_at = feed.cached_at
     
-    data = { 'feed_id' => feed.id } and item.elements.each do |e|
-      data[e.name.gsub(/^dc:(\\w)/,"\\1").to_s] = e.text
+    prepare_data(xml_data)
+    format_data
+    
+    unless cached?
+      save!
+      self
+    else
+      false
     end
-    
-    new_item = format_data(data)
-    
-    # puts data.to_yaml
-    puts new_item.to_yaml
-    
   end
   
+  def cached?
+    if self.feed_id && self.published_at
+      item = Item.find(:first, :conditions => { :published_at => self.published_at, :feed_id => self.feed_id })
+      if item
+        true
+      else
+        false
+      end
+    end
+  end
   
-  def self.format_data(data)
-    new_item = {}
+  def prepare_data(xml_data)
+    data = {} and xml_data.elements.each do |e|
+      data[e.name.gsub(/^dc:(\\w)/,"\\1").to_s] = e.text
+    end
+    @data = data
+  end
+  
+  def format_data
+    self.title = @data['title']
+    self.description = @data['description']
+    self.url = @data['link']
+    self.tags = @data['subject']
     
-    published_at = data['date'] || data['pubDate']
-    
-    new_item['feed_id'] = data['feed_id']
-    new_item['title'] = data['title']
-    new_item['description'] = data['description']
-    new_item['url'] = data['link']
-    new_item['tags'] = data['subject']
-    new_item['published_at'] = Time.parse(published_at.to_s).to_s(:db);
-    new_item['published_at_raw'] = published_at.to_s;
-    new_item['cached_at'] = Time.zone.now.to_s(:db);
-    new_item
+    published_at = @data['date'] || @data['pubDate']
+    self.published_at = Time.parse(published_at.to_s);
   end
   
 end
