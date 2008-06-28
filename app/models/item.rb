@@ -6,11 +6,11 @@ class Item < ActiveRecord::Base
     self.feed_id = feed.id
     self.cached_at = feed.cached_at
     
-    prepare_data(xml_data)
-    format_data
+    @data = prepare_data(xml_data)
+    format_data(feed.permalink)
     
     unless cached?
-      save!
+      #save!
       self
     else
       false
@@ -20,29 +20,32 @@ class Item < ActiveRecord::Base
   def cached?
     if self.feed_id && self.published_at
       item = Item.find(:first, :conditions => { :published_at => self.published_at, :feed_id => self.feed_id })
-      if item
-        true
-      else
-        false
-      end
+      !item.blank?
     end
   end
   
   def prepare_data(xml_data)
     data = {} and xml_data.elements.each do |e|
-      data[e.name.gsub(/^dc:(\\w)/,"\\1").to_s] = e.text
+      data[e.name.gsub(/^dc:(\\w)/,"\\1").to_s] = e.text || e.attributes['url']
     end
-    @data = data
+    data
   end
   
-  def format_data
+  def format_data(permalink)
     self.title = @data['title']
     self.description = @data['description']
     self.url = @data['link']
-    self.tags = @data['subject']
+    self.tags = @data['subject'] || @data['category']
     
     published_at = @data['date'] || @data['pubDate']
     self.published_at = Time.parse(published_at.to_s);
+    
+    method_name = "format_#{permalink}_data"
+    self.send(method_name) if self.respond_to?(method_name)
+  end
+  
+  def format_flickr_data
+    puts @data.to_yaml
   end
   
 end
