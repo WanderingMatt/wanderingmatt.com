@@ -1,0 +1,113 @@
+/*
+Site Name: andy-pearson.com
+Version: 2.0
+Author: Andy Pearson
+Author URI: http://www.criticalwebdesign.co.uk
+Date: 11/05/08
+Time: 13:28:59
+*/
+body {
+	color:#fff;
+	background:#191919 url(../images/black/backie.gif) repeat top left;
+	font:65.5%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1 {
+	padding:295px 0 8px 16px;
+	color:#fff;
+	background:transparent url(../images/header-backie.png) no-repeat bottom left;
+	text-transform:lowercase;
+	font-size:3.5em;
+	line-height:1.4;
+}
+	h1 a, h1 span { float:left; }
+	h1 a { color:#fff; }
+	
+h2 {
+	padding:24px 0 146px 60px;
+	color:#c1c6c9;
+	background:transparent url(../images/intro-backie.png) no-repeat 0 234px;
+	font-size:1.8em;
+}
+a {
+	text-decoration:none;
+	color:#808182;
+}
+img {
+	display:block;
+}
+a:hover {
+	color:#00a2ff;
+}
+hr {
+	display:none;
+}
+
+/*
+---- Structure
+*/
+#wrapper {
+	background:transparent url(../images/black/border.gif) repeat-x top left;
+}
+#container {
+	margin:0 auto;
+	width:960px;
+	background:transparent url(../images/glow.png) no-repeat center 6px;
+}
+
+/*
+---- Header
+*/
+#header {
+	padding:0 0 0 6px;
+	width:294px;
+	float:left;
+	background:transparent url(../images/header-marks.png) no-repeat 6px 0;
+}
+
+/*
+---- Content
+*/
+#content {
+	padding:126px 5px 126px 0;
+	width:589px;
+	float:right;
+}
+
+/*
+---- Life Stream
+*/
+#life-stream {
+	padding-bottom:1px;
+	background:transparent url(../images/stream-backie-bottom.png) repeat-x bottom left;
+}
+	#life-stream ol {
+		padding:0 1px 0 0;
+		background:transparent url(../images/stream-backie-right.png) repeat-y top right;
+	}
+		#life-stream ol li {
+			padding:5px 4px 4px 5px;
+			float:left;
+			background:transparent url(../images/item-backie.png) no-repeat top left;
+		}
+
+/*
+---- Style Switcher
+*/
+#style-switcher {
+	display:none;
+}
+
+/* Clearfix */
+
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
