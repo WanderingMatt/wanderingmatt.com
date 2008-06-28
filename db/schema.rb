@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080625211535) do
+ActiveRecord::Schema.define(:version => 20080628140944) do
 
   create_table "feeds", :force => true do |t|
     t.string   "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20080625211535) do
     t.datetime "updated_at"
     t.datetime "cached_at"
     t.boolean  "active",     :default => false
+    t.string   "permalink"
   end
 
   create_table "items", :force => true do |t|

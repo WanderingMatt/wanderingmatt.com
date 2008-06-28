@@ -4,6 +4,7 @@ class Feed < ActiveRecord::Base
   
   validates_presence_of :name, :url
   
+  has_permalink :name, :permalink
   has_many :items
   named_scope :active, :conditions => { :active => true }
   
