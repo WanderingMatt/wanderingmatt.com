@@ -50,3 +50,9 @@ q:before, q:after {
 blockquote, q {
 	quotes: "" "";
 }
+strong {
+	font-weight:bold;
+}
+em {
+	font-style:italic;
+}

@@ -1,1 +1,15 @@
-<h2>Home</h2>
+<% unless @items.empty? %>
+	
+	<ol id="tumblog">
+		
+		<% for item in @items %>
+		
+			<li>
+				<h3><%= link_to h(item.title), item_path(item) %></h3>
+			</li>
+			
+		<% end  %>
+		
+	</ol>
+	
+<% end %>

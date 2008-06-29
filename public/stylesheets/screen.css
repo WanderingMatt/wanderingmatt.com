@@ -91,6 +91,17 @@ hr {
 		}
 
 /*
+---- Tumblog
+*/
+#tumblog {
+	font-size:1.4em;
+}
+	#tumblog li {
+		border-top:1px solid #ccc;
+		padding-bottom:36px;
+	}
+
+/*
 ---- Style Switcher
 */
 #style-switcher {

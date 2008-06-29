@@ -46,7 +46,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :feeds
   end
   
-  map.resources :feeds
+  map.resources :feeds, :items
   
   map.root :controller => 'items'
   

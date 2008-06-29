@@ -10,7 +10,7 @@ class Item < ActiveRecord::Base
     format_data(feed.permalink)
     
     unless cached?
-      #save!
+      save!
       self
     else
       false
