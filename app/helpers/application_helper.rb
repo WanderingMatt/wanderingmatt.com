@@ -9,4 +9,10 @@ module ApplicationHelper
     end
   end
   
+  def current_age
+    now = Time.now
+    dob = Time.local(1987, "Aug", 18)
+    age = now.year - dob.year - (dob.to_time.change(:year => now.year) > now ? 1 : 0)
+  end
+  
 end
