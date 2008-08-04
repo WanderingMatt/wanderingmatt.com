@@ -31,7 +31,11 @@ class Item < ActiveRecord::Base
   
   
   def format_lastfm_data
-    puts @data
+    self.title = (@data/:name).inner_html
+    self.description = (@data/:artist).inner_html
+    self.url = (@data/:url).inner_html
+    self.tags = (@data/:album).inner_html
+    self.published_at = Time.parse((@data/:date).inner_html)
   end
   
   # def prepare_and_save(feed, xml_data)
