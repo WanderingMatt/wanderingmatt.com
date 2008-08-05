@@ -8,12 +8,12 @@ class Item < ActiveRecord::Base
     
     format_data(xml_data, feed.permalink)
     
-    unless cached?
+    # unless cached?
       save!
       self
-    else
-      false
-    end
+    # else
+    #  false
+    #end
   end
   
   def cached?
@@ -36,6 +36,7 @@ class Item < ActiveRecord::Base
     self.url = (@data/:url).inner_html
     self.tags = (@data/:album).inner_html
     self.published_at = Time.parse((@data/:date).inner_html)
+    self.image_id = Image.find_or_create_lastfm_image(self)
   end
   
   # def prepare_and_save(feed, xml_data)

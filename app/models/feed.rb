@@ -2,7 +2,6 @@ class Feed < ActiveRecord::Base
   
   require 'hpricot'
   require 'open-uri'
-  # require 'rexml/document'
   
   validates_presence_of :name, :url
   

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080628140944) do
+ActiveRecord::Schema.define(:version => 20080805180522) do
 
   create_table "feeds", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20080628140944) do
     t.string   "tags"
     t.datetime "published_at"
     t.datetime "cached_at"
+    t.integer  "image_id",     :limit => 11
   end
 
 end
