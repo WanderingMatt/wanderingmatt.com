@@ -14,58 +14,78 @@ class Image < ActiveRecord::Base
   end
   
   def self.create_lastfm_image(item)
-    image_id = 0
+    
+    image = Image.new
     
     if !item.description.empty? && !item.tags.empty?
       
-      source_url = "http://ws.audioscrobbler.com/1.0/album/#{CGI.escape(item.description)}/#{CGI.escape(item.tags)}/info.xml"
+      image.title = item.tags
+      image.source_url = "http://ws.audioscrobbler.com/1.0/album/#{CGI.escape(item.description)}/#{CGI.escape(item.tags)}/info.xml"
       
-      begin
-        xml_data = Hpricot.XML(open(source_url))
-      rescue
-        puts "404 File Not Found!"
-      end
-      
-      if xml_data
+      if image.xml_source
         
-        images = {
-          :large => (xml_data/:coverart/:large).inner_html,
-          :medium => (xml_data/:coverart/:medium).inner_html
+        image_locations = {
+          :large => (image.xml_source/:coverart/:large).inner_html,
+          :medium => (image.xml_source/:coverart/:medium).inner_html
         }
         
-        images.each do |size, img|
-          
-          saved = false
-          path = '/images/items/lastfm'
-          image_name = self.random_file_name+'.jpg'
-          #open("#{RAILS_ROOT}/public#{path}/#{image_name}", "wb").write(open(img).read)
-          
-          img.gsub!("http://", "")
-          parts = img.split("/")
-          domain = parts[0]
-          server_path = img.gsub(domain, "")
-          
-          Net::HTTP.start(domain) do |http|
-            resp = http.get(server_path)
-            if resp.code == "200"
-              open("#{RAILS_ROOT}/public#{path}/#{image_name}", "wb") do |file|
-                file.write(resp.body)
-                saved = true
-              end
-            end
-          end
-          
-          break if saved
+        if image.download_images('lastfm', image_locations)
+          image.save!
         end
       end
     end
-    image_id
+    
+    image.id || 0
   end
   
-  def self.random_file_name
+  def random_file_name
     chars = ("a".."z").to_a + ("1".."9").to_a 
     string = Array.new(10, '').collect{chars[rand(chars.size)]}.join
     Time.now.strftime("%y%m%d").to_s + '_' + string
+  end
+  
+  def xml_source
+    begin
+      @xml_source ||= Hpricot.XML(open(source_url))
+    rescue
+      puts "404 File Not Found!"
+      false
+    end
+  end
+  
+  def download_images(target_folder, locations)
+    locations.each do |size, location|
+      if self.path.blank? && self.name.blank?
+        download_image(target_folder, location)
+      end
+    end
+  end
+  
+  def download_image(target_folder, location)
+    path = "/images/items/#{target_folder}"
+    name = random_file_name+'.jpg'
+    
+    location = split_domain_and_path(location)
+    
+    Net::HTTP.start(location[:domain]) do |http|
+      resp = http.get(location[:path])
+      if resp.code == "200"
+        open("#{RAILS_ROOT}/public#{path}/#{name}", "wb") do |file|
+          file.write(resp.body)
+          self.path = path
+          self.name = name
+          true
+        end
+      end
+    end
+  end
+  
+  def split_domain_and_path(location)
+    location.gsub!("http://", "")
+    parts = location.split("/")
+    r = { :domain => parts[0] }
+    r[:path] = location.gsub(r[:domain], "")
+    r
   end
   
 end
