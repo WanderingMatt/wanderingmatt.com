@@ -1,6 +1,5 @@
 class Image < ActiveRecord::Base
   
-  require 'digest/sha1'
   require 'hpricot'
   require 'open-uri'
   
@@ -23,13 +22,7 @@ class Image < ActiveRecord::Base
       image.source_url = "http://ws.audioscrobbler.com/1.0/album/#{CGI.escape(item.description)}/#{CGI.escape(item.tags)}/info.xml"
       
       if image.xml_source
-        
-        image_locations = {
-          :large => (image.xml_source/:coverart/:large).inner_html,
-          :medium => (image.xml_source/:coverart/:medium).inner_html
-        }
-        
-        if image.download_images('lastfm', image_locations)
+        if image.download_image('lastfm', (image.xml_source/:coverart/:large).inner_html)
           image.save!
         end
       end
@@ -40,7 +33,7 @@ class Image < ActiveRecord::Base
   
   def random_file_name
     chars = ("a".."z").to_a + ("1".."9").to_a 
-    string = Array.new(10, '').collect{chars[rand(chars.size)]}.join
+    string = Array.new(10, '').collect { chars[rand(chars.size)] }.join
     Time.now.strftime("%y%m%d").to_s + '_' + string
   end
   
@@ -50,14 +43,6 @@ class Image < ActiveRecord::Base
     rescue
       puts "404 File Not Found!"
       false
-    end
-  end
-  
-  def download_images(target_folder, locations)
-    locations.each do |size, location|
-      if self.path.blank? && self.name.blank?
-        download_image(target_folder, location)
-      end
     end
   end
   
