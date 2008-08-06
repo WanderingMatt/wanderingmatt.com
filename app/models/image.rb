@@ -36,7 +36,7 @@ class Image < ActiveRecord::Base
         images.each do |size, img|
           
           saved = false
-          path = '/images/lastfm'
+          path = '/images/items/lastfm'
           image_name = self.random_file_name+'.jpg'
           #open("#{RAILS_ROOT}/public#{path}/#{image_name}", "wb").write(open(img).read)
           
