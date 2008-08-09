@@ -36,6 +36,7 @@ class Item < ActiveRecord::Base
     self.url = CGI.unescapeHTML((@data/:url).inner_html)
     self.tags = CGI.unescapeHTML((@data/:album).inner_html)
     self.published_at = Time.parse((@data/:date).inner_html)
+    self.published_at += (60 * 60) if Time.now.dst?
     self.image_id = Image.find_or_create_lastfm_image(self)
   end
   

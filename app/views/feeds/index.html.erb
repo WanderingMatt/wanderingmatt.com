@@ -9,6 +9,8 @@
 				<th>&nbsp;</th>
 				<th>Feed</th>
 				<th>Title</th>
+				<th>Published At</th>
+				<th>Created At</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,6 +21,8 @@
 					<td><%= i %>)&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td><%=h item.feed.name %></td>
 					<td><%=h item.title %></td>
+					<td><%= item.published_at %></td>
+					<td><%= item.created_at %></td>
 				</tr>
 			<% end %>
 			
