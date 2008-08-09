@@ -50,6 +50,7 @@ class Image < ActiveRecord::Base
     path = "/images/items/#{target_folder}"
     name = random_file_name+'.jpg'
     
+    self.source_image_url = location
     location = split_domain_and_path(location)
     
     Net::HTTP.start(location[:domain]) do |http|
@@ -66,11 +67,12 @@ class Image < ActiveRecord::Base
   end
   
   def split_domain_and_path(location)
-    location.gsub!("http://", "")
+    location = location.gsub("http://", "")
     parts = location.split("/")
     r = { :domain => parts[0] }
     r[:path] = location.gsub(r[:domain], "")
     r
   end
+  
   
 end

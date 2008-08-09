@@ -8,12 +8,12 @@ class Item < ActiveRecord::Base
     
     format_data(xml_data, feed.permalink)
     
-    # unless cached?
+    unless cached?
       save!
       self
-    # else
-    #  false
-    #end
+    else
+      false
+    end
   end
   
   def cached?
