@@ -9,6 +9,10 @@ module ApplicationHelper
     end
   end
   
+  def colour_schemes
+    ['Black', 'White', 'Vintage', 'Bleached', 'Rich']
+  end
+  
   def current_age
     now = Time.now
     dob = Time.local(1987, "Aug", 18)
@@ -23,5 +27,9 @@ module ApplicationHelper
 		  path = image.full_path
 		end
 		path
+  end
+  
+  def lastfm_album_url(item)
+    "http://www.last.fm/music/#{CGI.escape(item.description)}/#{CGI.escape(item.tags)}/"
   end
 end

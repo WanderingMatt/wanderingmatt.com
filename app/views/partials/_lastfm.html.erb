@@ -7,7 +7,7 @@
 	<% path = find_image_path(item.image) %>
 	<% unless path.blank? %>
 		<div class="album">
-			<a href="#"><img src="<%= path %>" width="42" height="42" alt="" title=""></a>
+			<a href="<%= lastfm_album_url(item) %>" title="<%= item.image.title %>"><img src="<%= path %>" width="42" height="42" alt="<%= item.image.title %>"></a>
 		</div>
 	<% end %>
 <% end %>
