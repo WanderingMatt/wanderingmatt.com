@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   
   belongs_to :feed
+  belongs_to :image
   
   def prepare_and_save(feed, xml_data)
     self.feed_id = feed.id
@@ -29,7 +30,6 @@ class Item < ActiveRecord::Base
     self.send(method_name) if self.respond_to?(method_name)
   end
   
-  
   def format_lastfm_data
     self.title = CGI.unescapeHTML((@data/:name).inner_html)
     self.description = CGI.unescapeHTML((@data/:artist).inner_html)
@@ -38,6 +38,13 @@ class Item < ActiveRecord::Base
     self.published_at = Time.parse((@data/:date).inner_html)
     self.published_at += (60 * 60) if Time.now.dst?
     self.image_id = Image.find_or_create_lastfm_image(self)
+  end
+  
+  def artist_url
+    if self.feed.permalink == 'lastfm'
+      parts = self.url.split("_")
+      parts[0]
+    end
   end
   
   # def prepare_and_save(feed, xml_data)

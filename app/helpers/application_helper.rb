@@ -15,4 +15,13 @@ module ApplicationHelper
     age = now.year - dob.year - (dob.to_time.change(:year => now.year) > now ? 1 : 0)
   end
   
+  def find_image_path(image)
+    path = ''
+		if File.exists?("#{RAILS_ROOT}/public#{image.thumb_path}")
+		  path = image.thumb_path
+		elsif File.exists?("#{RAILS_ROOT}/public#{image.full_path}")
+		  path = image.full_path
+		end
+		path
+  end
 end

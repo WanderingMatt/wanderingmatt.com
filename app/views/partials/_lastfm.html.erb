@@ -1,4 +1,13 @@
 <div class="main">
-	<h2><%= item.title %> by <%= item.description %></h2>
+	<h2><%= link_to item.title, item.url %> by <%= link_to item.description, item.artist_url %></h2>
 	<p><%= item.published_at.strftime("%A %d %B, %I:%M%p") %></p>
 </div>
+
+<% if item.image %>
+	<% path = find_image_path(item.image) %>
+	<% unless path.blank? %>
+		<div class="album">
+			<a href="#"><img src="<%= path %>" width="42" height="42" alt="" title=""></a>
+		</div>
+	<% end %>
+<% end %>
