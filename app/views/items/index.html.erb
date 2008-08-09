@@ -1,15 +1,16 @@
 <% unless @items.empty? %>
 	
-	<!--<ol id="tumblog">
-		
+	<ol id="lifestream">
 		<% for item in @items %>
-		
-			<li>
-				<h3><%= link_to h(item.title), item_path(item) %></h3>
+			<li class="<%= item.feed.permalink %> clearfix">
+				<div class="content">
+					<%= render :partial => "partials/#{item.feed.permalink}", :locals => { :item => item } %>
+				</div>
+				<div class="header">
+					<h4><strong><%= item.feed.name %></strong> #000000</h4>
+				</div>
 			</li>
-			
 		<% end  %>
-		
-	</ol>-->
+	</ol>
 	
 <% end %>
