@@ -1,13 +1,13 @@
 <div class="main">
-	<h2><%= link_to item.title, item.url %> by <%= link_to item.description, item.artist_url %></h2>
-	<p><%= item.published_at.strftime("%A %d %B, %I:%M%p") %></p>
+	<h2><%= link_to h(item.title), item.url %> <span>by <%= link_to h(item.description), item.artist_url %></span></h2>
+	<p class="date-time"><%= item.published_at.strftime("%A %d %B, %I:%M%p") %></p>
 </div>
 
 <% if item.image %>
 	<% path = find_image_path(item.image) %>
 	<% unless path.blank? %>
 		<div class="album">
-			<a href="<%= lastfm_album_url(item) %>" title="<%= item.image.title %>"><img src="<%= path %>" width="42" height="42" alt="<%= item.image.title %>" /></a>
+			<a href="<%= lastfm_album_url(item) %>" title="<%=h item.image.title %>"><img src="<%= path %>" width="46" height="46" alt="<%=h item.image.title %>" /></a>
 		</div>
 	<% end %>
 <% end %>
