@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   
   def index
-    @items = Item.find(:all, :limit => 20, :order => 'published_at DESC')
+    limit = (params['offset']) ? 10 : 30
+    @offset = (params['offset']) ? params['offset'].to_i : 0
+    @items = Item.find(:all, :limit => limit, :order => 'published_at DESC', :offset => @offset)
   end
   
 end

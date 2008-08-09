@@ -171,6 +171,15 @@ img {
 	padding:0;
 }
 
+/*
+---- Javascript
+*/
+
+.js_hide,
+#lifestream .js_hide {
+	display:none;
+}
+
 /* ---- Clearfix */
 .clearfix:after {
     content:"."; 

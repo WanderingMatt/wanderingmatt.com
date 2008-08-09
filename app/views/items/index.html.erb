@@ -2,7 +2,7 @@
 	
 	<ol id="lifestream">
 		<% for item in @items %>
-			<li class="<%= item.feed.permalink %> clearfix">
+			<li id="item-<%= @offset %>" class="<%= item.feed.permalink %> clearfix<%= ' js_hide' if @offset > 20 %>">
 				<div class="content">
 					<%= render :partial => "partials/#{item.feed.permalink}", :locals => { :item => item } %>
 				</div>
@@ -10,7 +10,8 @@
 					<h4><strong><%= item.feed.name %></strong> #000000</h4>
 				</div>
 			</li>
-		<% end  %>
+			<% @offset+=1 %>
+		<% end %>
 	</ol>
 	
 <% end %>
