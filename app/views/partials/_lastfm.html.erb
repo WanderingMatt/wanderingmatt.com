@@ -3,7 +3,7 @@
 	<p class="date-time"><%= item.published_at.strftime("%A %d %B, %I:%M%p") %></p>
 </div>
 
-<% if item.image %>
+<% if item.image_id != 0 && item.image %>
 	<% path = find_image_path(item.image) %>
 	<% unless path.blank? %>
 		<div class="album">
