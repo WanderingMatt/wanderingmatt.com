@@ -2,21 +2,25 @@ var LifeStream = {
 	
 	init : function()
 	{
-		LifeStream.getItems();
-		
-		// $(window).scroll(function(){
-		// 	if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-		// 		LifeStream.showHiddenItems();
-		// 		LifeStream.getItems();
-		// 	}
-		// });
+		LifeStream.infiniteScroll();
+	},
+	
+	infiniteScroll : function()
+	{
+		$(window).scroll(function(){
+			if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+				LifeStream.showHiddenItems();
+				LifeStream.getItems();
+			}
+		});
 	},
 	
 	getItems : function()
 	{
-		// last_item = $('#lifestream:last');
+		var last_item_id = $('#lifestream li:last').attr('id');
+		var offset = parseInt(last_item_id.replace('item-', '')) + 1;
 		
-		$.get('/items.js', { offset : 10 }, function(data){
+		$.get('/items.js', { offset : offset }, function(data){
 			$('#lifestream').append(data);
 		});
 	},

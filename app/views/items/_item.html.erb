@@ -1,0 +1,8 @@
+<li id="item-<%= offset %>" class="<%= item.feed.permalink %> clearfix<%= ' js_hide' if offset > 20 %>">
+	<div class="content">
+		<%= render :partial => "partials/#{item.feed.permalink}", :locals => { :item => item } %>
+	</div>
+	<div class="header">
+		<h4><strong><%= item.feed.name %></strong> #000000</h4>
+	</div>
+</li>
