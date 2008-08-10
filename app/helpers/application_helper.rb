@@ -9,8 +9,20 @@ module ApplicationHelper
     end
   end
   
+  def current_colour_scheme
+    unless @current_colour_scheme
+      colour_schemes.each do |colour|
+        if params.has_key?(colour.downcase)
+          @current_colour_scheme = colour
+        end
+      end
+    end
+    @current_colour_scheme ||= colour_schemes[rand(colour_schemes.length)]
+  end
+  
   def colour_schemes
-    ['Black', 'White', 'Vintage', 'Bleached', 'Rich']
+    # @colour_schemes ||= ['Black', 'White', 'Vintage', 'Bleached', 'Rich']
+    @colour_schemes ||= ['Bleached', 'Rich']
   end
   
   def current_age

@@ -75,15 +75,15 @@ class Image < ActiveRecord::Base
   end
   
   def thumb
-    @thumb || self.name.gsub(".jpg", "_thumb.jpg")
+    @thumb ||= self.name.gsub(".jpg", "_thumb.jpg")
   end
   
   def full_path
-    @full_path || self.path + '/' + self.name
+    @full_path ||= self.path + '/' + self.name
   end
   
   def thumb_path
-    @thumb_path || self.path + '/' + self.thumb
+    @thumb_path ||= self.path + '/' + self.thumb
   end
   
 end
