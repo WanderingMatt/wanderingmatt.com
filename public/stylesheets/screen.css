@@ -44,6 +44,9 @@ h3 {
 	font-size:1.8em;
 	padding:12px 6px 18px;
 }
+	h3 a {
+		border-bottom:none;
+	}
 h4 {
 	padding:3px;
 	color:#4b4b4b;
