@@ -27,7 +27,21 @@ class Item < ActiveRecord::Base
   def format_data(xml_data, permalink)
     @data = xml_data
     method_name = "format_#{permalink}_data"
-    self.send(method_name) if self.respond_to?(method_name)
+    if self.respond_to?(method_name)
+      self.send(method_name)
+    else
+      format_feed_data
+    end
+  end
+  
+  def format_feed_data
+    self.title = CGI.unescapeHTML((@data/:title).inner_html)
+    self.description = CGI.unescapeHTML((@data/:description).inner_html)
+    self.url = CGI.unescapeHTML((@data/:link).inner_html)
+    self.tags = ((@data/:subject).inner_html.empty?) ? CGI.unescapeHTML((@data/:category).inner_html) : CGI.unescapeHTML((@data/:subject).inner_html)
+    
+    published_at = ((@data/:date).inner_html.empty?) ? CGI.unescapeHTML((@data/:pubDate).inner_html) : CGI.unescapeHTML((@data/:date).inner_html)
+    self.published_at = Time.parse(published_at.to_s);
   end
   
   def format_lastfm_data

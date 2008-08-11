@@ -40,6 +40,10 @@ h2 {
 		font-size:0.8em;
 		font-weight:normal;
 	}
+h3 {
+	font-size:1.8em;
+	padding:12px 6px 18px;
+}
 h4 {
 	padding:3px;
 	color:#4b4b4b;
@@ -182,15 +186,18 @@ body.bleached { background-color:#d9d5cb; }
 body.bleached #container { background:#d9d5cb url(../images/bleached/backie.jpg) no-repeat fixed 50% 0; }
 body.bleached h1 a { background-image:url(../images/bleached/andy-pearson.gif); }
 body.bleached h2 { color:#2b1f23; }
+body.bleached h3 { color:#2b1f23; }
 body.bleached h4 { color:#8f8d88; }
 body.bleached h4 strong { color:#554c4f; }
-body.bleached a { color:#66260c; }
+body.bleached a { color:#66260c; border-bottom-color:#c5c2bb; }
 body.bleached a:hover { color:#ff5e1d; }
 body.bleached #header p span { color:#554c4f; background-color:#efece6; }
 body.bleached #header p a,
 body.bleached #header p a:hover { color:#993811; }
 body.bleached #lifestream li { border-top-color:#80797b; }
 body.bleached #lifestream li p.date-time { color:#898680; border-top-color:#c3c0b8; }
+body.bleached #lifestream li p.date-time a { color:#898680; }
+body.bleached #lifestream li p.date-time a:hover { color:#ff5e1d; border-bottom-color:#ff5e1d; }
 
 #rich { background-color:#f2e985; }
 

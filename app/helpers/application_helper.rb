@@ -44,4 +44,8 @@ module ApplicationHelper
   def lastfm_album_url(item)
     "http://www.last.fm/music/#{CGI.escape(item.description)}/#{CGI.escape(item.tags)}/"
   end
+  
+  def tweet(text)
+    text.gsub("andypearson:", 'Andy Pearson')
+  end
 end
