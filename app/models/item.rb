@@ -38,7 +38,7 @@ class Item < ActiveRecord::Base
     self.title = CGI.unescapeHTML((@data/:title).inner_html)
     self.description = CGI.unescapeHTML((@data/:description).inner_html)
     self.url = CGI.unescapeHTML((@data/:link).inner_html)
-    self.tags = ((@data/:subject).inner_html.empty?) ? CGI.unescapeHTML((@data/:category).inner_html) : CGI.unescapeHTML((@data/:subject).inner_html)
+    self.tags = ((@data/:subject).inner_html.empty?) ? CGI.unescapeHTML((@data/'media:category').inner_html) : CGI.unescapeHTML((@data/:subject).inner_html)
     
     published_at = ((@data/:date).inner_html.empty?) ? CGI.unescapeHTML((@data/:pubDate).inner_html) : CGI.unescapeHTML((@data/:date).inner_html)
     self.published_at = Time.parse(published_at.to_s);
@@ -54,57 +54,16 @@ class Item < ActiveRecord::Base
     self.image_id = Image.find_or_create_lastfm_image(self)
   end
   
+  def format_flickr_data
+    format_feed_data
+    self.image_id = Image.create_flickr_image(self, (@data/'media:content').first[:url])
+  end
+  
   def artist_url
     if self.feed.permalink == 'lastfm'
       parts = self.url.split("_")
       parts[0]
     end
   end
-  
-  # def prepare_and_save(feed, xml_data)
-  #     self.feed_id = feed.id
-  #     self.cached_at = feed.cached_at
-  #     
-  #     @data = prepare_data(xml_data)
-  #     format_data(feed.permalink)
-  #     
-  #     unless cached?
-  #       save!
-  #       self
-  #     else
-  #       false
-  #     end
-  #   end
-  # 
-  # def cached?
-  #   if self.feed_id && self.published_at
-  #     item = Item.find(:first, :conditions => { :published_at => self.published_at, :feed_id => self.feed_id })
-  #     !item.blank?
-  #   end
-  # end
-  # 
-  # def prepare_data(xml_data)
-  #   data = {} and xml_data.elements.each do |e|
-  #     data[e.name.gsub(/^dc:(\\w)/,"\\1").to_s] = e.text || e.attributes['url']
-  #   end
-  #   data
-  # end
-  # 
-  # def format_data(permalink)
-  #   self.title = @data['title']
-  #   self.description = @data['description']
-  #   self.url = @data['link']
-  #   self.tags = @data['subject'] || @data['category']
-  #   
-  #   published_at = @data['date'] || @data['pubDate']
-  #   self.published_at = Time.parse(published_at.to_s);
-  #   
-  #   method_name = "format_#{permalink}_data"
-  #   self.send(method_name) if self.respond_to?(method_name)
-  # end
-  # 
-  # def format_flickr_data
-  #   puts @data.to_yaml
-  # end
   
 end

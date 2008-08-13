@@ -33,6 +33,20 @@ class Image < ActiveRecord::Base
     image.id || 0
   end
   
+  def self.create_flickr_image(item, url)
+    image = Image.new
+    image.title = item.tags
+    image.source_url = item.url
+    image.source_image_url = url
+    
+    if image.download_image('flickr', url, 'png')
+      image.flickr_resize
+      image.save!
+    end
+    
+    image.id || 0
+  end
+  
   def random_file_name
     chars = ("a".."z").to_a + ("1".."9").to_a 
     string = Array.new(10, '').collect { chars[rand(chars.size)] }.join
@@ -48,9 +62,9 @@ class Image < ActiveRecord::Base
     end
   end
   
-  def download_image(target_folder, location)
+  def download_image(target_folder, location, ext = 'jpg')
     path = "/images/items/#{target_folder}"
-    name = random_file_name+'.jpg'
+    name = random_file_name+'.'+ext
     
     self.source_image_url = location
     location = split_domain_and_path(location)
@@ -69,9 +83,21 @@ class Image < ActiveRecord::Base
   end
   
   def generate_thumbnail()
-    img = Magick::Image.read "#{RAILS_ROOT}/public#{self.path}/#{self.name}"
-    thumb = img[0].scale(46, 46)
+    img = Magick::Image.read("#{RAILS_ROOT}/public#{self.path}/#{self.name}").first
+    thumb = img.scale(46, 46)
     thumb.write "#{RAILS_ROOT}/public#{self.path}/#{self.thumb}"
+  end
+  
+  def flickr_resize()
+    original_image_path = "#{RAILS_ROOT}/public#{self.path}/#{self.name}"
+    original_image = Magick::Image.read(original_image_path).first
+    original_image.change_geometry!('408') do |cols, rows, img|
+      img.resize!(cols, rows)
+    end
+    new_file_name = random_file_name+'.jpg'
+    original_image.write "#{RAILS_ROOT}/public#{self.path}/#{new_file_name}"
+    self.name = new_file_name
+    File.delete(original_image_path)
   end
   
   def split_domain_and_path(location)
