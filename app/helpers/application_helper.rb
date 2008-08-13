@@ -47,6 +47,7 @@ module ApplicationHelper
   
   def tweet(text)
     text.gsub!("andypearson:", 'Andy Pearson')
+    text = auto_link(text)
     text.gsub!(/@(\w+)/) do |s|
       '@<a href="http://twitter.com/' + $1 + '">' + $1 + '</a>'
     end
