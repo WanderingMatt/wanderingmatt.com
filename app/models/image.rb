@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   
+  require 'RMagick'
   require 'hpricot'
   require 'open-uri'
   
@@ -24,6 +25,7 @@ class Image < ActiveRecord::Base
       if image.xml_source
         if image.download_image('lastfm', (image.xml_source/:coverart/:large).inner_html)
           image.save!
+          image.generate_thumbnail
         end
       end
     end
@@ -64,6 +66,12 @@ class Image < ActiveRecord::Base
         end
       end
     end
+  end
+  
+  def generate_thumbnail()
+    img = Magick::Image.read "#{RAILS_ROOT}/public#{self.path}/#{self.name}"
+    thumb = img[0].scale(46, 46)
+    thumb.write "#{RAILS_ROOT}/public#{self.path}/#{self.thumb}"
   end
   
   def split_domain_and_path(location)
