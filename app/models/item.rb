@@ -51,12 +51,12 @@ class Item < ActiveRecord::Base
     self.tags = CGI.unescapeHTML((@data/:album).inner_html)
     self.published_at = Time.parse((@data/:date).inner_html)
     self.published_at += (60 * 60) if Time.now.dst?
-    self.image_id = Image.find_or_create_lastfm_image(self)
+    self.image_id = Image.find_or_create_lastfm_image(self) unless cached?
   end
   
   def format_flickr_data
     format_feed_data
-    self.image_id = Image.create_flickr_image(self, (@data/'media:content').first[:url])
+    self.image_id = Image.create_flickr_image(self, (@data/'media:content').first[:url]) unless cached?
   end
   
   def artist_url

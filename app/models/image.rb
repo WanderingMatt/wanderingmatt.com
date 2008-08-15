@@ -35,7 +35,7 @@ class Image < ActiveRecord::Base
   
   def self.create_flickr_image(item, url)
     image = Image.new
-    image.title = item.tags
+    image.title = item.title
     image.source_url = item.url
     image.source_image_url = url
     
@@ -84,6 +84,7 @@ class Image < ActiveRecord::Base
   
   def generate_thumbnail()
     img = Magick::Image.read("#{RAILS_ROOT}/public#{self.path}/#{self.name}").first
+    img.strip!
     thumb = img.scale(46, 46)
     thumb.write "#{RAILS_ROOT}/public#{self.path}/#{self.thumb}"
   end
@@ -94,8 +95,9 @@ class Image < ActiveRecord::Base
     original_image.change_geometry!('408') do |cols, rows, img|
       img.resize!(cols, rows)
     end
+    original_image.strip!
     new_file_name = random_file_name+'.jpg'
-    original_image.write "#{RAILS_ROOT}/public#{self.path}/#{new_file_name}"
+    original_image.write("#{RAILS_ROOT}/public#{self.path}/#{new_file_name}") { self.quality = 90 }
     self.name = new_file_name
     File.delete(original_image_path)
   end
