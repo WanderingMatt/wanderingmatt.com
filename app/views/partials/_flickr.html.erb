@@ -1,5 +1,5 @@
 <h2><%= link_to h(item.title), item.url %></h2>
-<p class="tags"><%= item.tags %></p>
+<p class="tags"><%= link_to_tags item.tags, 'http://www.flickr.com/photos/andypearson/tags/' %></p>
 
 <% if item.image_id != 0 && item.image %>
 	<% path = find_image_path(item.image) %>
@@ -7,3 +7,5 @@
 		<div><a href="<%= item.url %>" title="<%=h item.title %>"><img src="<%= path %>" alt="<%=h item.title %>" /></a></div>
 	<% end %>
 <% end %>
+
+<p class="date-time"><%= item.published_at.strftime("%A %d %B, %I:%M%p") %></p>

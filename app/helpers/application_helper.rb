@@ -51,6 +51,16 @@ module ApplicationHelper
     text.gsub!(/@(\w+)/) do |s|
       '@<a href="http://twitter.com/' + $1 + '">' + $1 + '</a>'
     end
-    widont_single(text)
+    widont(text)
+  end
+  
+  def link_to_tags(tags, base_url)
+    r = ''
+    tags = tags.split(' ')
+    tags.each do |tag|
+      r += '<a href="'+base_url+tag+'/">'+tag+'</a>'
+      r += (tag == tags[(tags.size)-2]) ? '&nbsp;' : ' '
+    end
+    r
   end
 end
