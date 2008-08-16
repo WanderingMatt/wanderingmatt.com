@@ -3,7 +3,7 @@ var LifeStream = {
 	init : function()
 	{
 		LifeStream.backToTop();
-		LifeStream.styleSwitcher();
+		// LifeStream.styleSwitcher();
 		LifeStream.infiniteScroll();
 	},
 	

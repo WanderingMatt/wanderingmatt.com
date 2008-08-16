@@ -102,16 +102,15 @@ img {
 ---- Header
 */
 #header ul {
+	width:24px;
 	height:108px;
 	background:transparent url(../images/blank/tab.gif) no-repeat top left;
 	float:left;
+	overflow:hidden;
 }
 	#header ul li {
 		float:left;
 		display:none;
-	}
-	#header ul li.active {
-		display:block;
 	}
 		#header ul li a {
 			display:block;

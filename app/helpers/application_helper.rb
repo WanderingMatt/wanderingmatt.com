@@ -13,7 +13,7 @@ module ApplicationHelper
     unless @current_colour_scheme
       colour_schemes.each do |colour|
         if params.has_key?(colour.downcase)
-          @current_colour_scheme = colour
+          @current_colour_scheme = colour + ' fixed'
         end
       end
     end
