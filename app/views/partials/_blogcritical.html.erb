@@ -1,0 +1,4 @@
+<h2><%= link_to h(item.title), item.url %></h2>
+<%= blog item.description %>
+<p class="read"><%= link_to 'Read the full blog post', item.url %></p>
+<p class="date-time"><%= item.published_at.strftime("%A %d %B, %I:%M%p") %></p>

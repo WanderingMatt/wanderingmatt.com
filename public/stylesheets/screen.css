@@ -61,6 +61,7 @@ h4 {
 		color:#adadad;
 	}
 p {
+	padding:0 6px 18px;
 	font-size:1.2em;
 	color:#ebebeb;
 }
@@ -179,9 +180,8 @@ img {
 	width:46px;
 	padding:3px 0 0 6px;
 }
-#lifestream li.lastfm h2 {
-	padding:11px 0 0 0;
-}
+#lifestream li.lastfm h2 { padding:11px 0 0 0; }
+#lifestream li.lastfm { padding:0; }
 #lifestream li.lastfm .date-time {
 	border:none;
 	padding:0;
@@ -190,6 +190,9 @@ img {
 /* Flickr */
 #lifestream li.flickr div.content div { padding:0 6px 3px; }
 #lifestream li.flickr p.date-time { border:none; }
+
+/* blog.critical */
+#lifestream li.blogcritical h2 { font-size:1.8em; padding-top:16px; padding-bottom:16px; }
 
 /*
 ---- Colour Schemes

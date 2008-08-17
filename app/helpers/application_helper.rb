@@ -1,6 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   
+  require 'hpricot'
+  
   def show_flash(key = :notice)
     if flash[key]
       '<p class="flash '+key.to_s+'">' + flash[key] + '</p>'
@@ -62,5 +64,15 @@ module ApplicationHelper
       r += (tag == tags[(tags.size)-2]) ? '&nbsp;' : ' '
     end
     r
+  end
+  
+  def blog(content)
+    content.gsub!("<![CDATA[", "")
+    content.gsub!("]]>", "")
+    post = Hpricot(content);
+    (post/"div.feedflare").remove
+    (post/"img").remove
+    (post/"p:last-child").remove if (content.include? 'more-link')
+    post
   end
 end

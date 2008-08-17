@@ -59,6 +59,12 @@ class Item < ActiveRecord::Base
     self.image_id = Image.create_flickr_image(self, (@data/'media:content').first[:url]) unless cached?
   end
   
+  def format_blogcritical_data
+    format_feed_data
+    self.url = CGI.unescapeHTML((@data/'feedburner:origLink').inner_html)
+    self.description = (@data/'content:encoded').inner_html
+  end
+  
   def artist_url
     if self.feed.permalink == 'lastfm'
       parts = self.url.split("_")
