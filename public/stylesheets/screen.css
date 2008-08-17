@@ -41,6 +41,7 @@ h2 {
 		font-weight:normal;
 	}
 h3 {
+	color:#d6d6d6;
 	font-size:1.8em;
 	padding:12px 6px 18px;
 }
@@ -68,7 +69,8 @@ a {
 	border-bottom:1px solid #525252;
 	color:#a3a3a3;
 }
-a:hover {
+a:hover,
+#lifestream li p.date-time a:hover {
 	color:#fff;
 	border-bottom-color:#fff;
 }
@@ -160,6 +162,7 @@ img {
 		padding:3px 6px;
 		border-top:1px solid #525252;
 	}
+		#lifestream li p.date-time a { color:#808080; }
 	#lifestream li p.tags {
 		font-size:1.1em;
 		padding:0 6px 12px;
