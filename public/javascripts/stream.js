@@ -55,7 +55,7 @@ var LifeStream = {
 	infiniteScroll : function()
 	{
 		$(window).scroll(function(){
-			if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+			if ($(window).scrollTop() >= ($(document).height() - $(window).height()) - 100) {
 				LifeStream.showHiddenItems();
 				LifeStream.getItems();
 			}
