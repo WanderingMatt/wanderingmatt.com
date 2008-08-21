@@ -49,7 +49,7 @@ h3 {
 		border-bottom:none;
 	}
 h4 {
-	padding:3px;
+	padding:4px 3px;
 	color:#4b4b4b;
 	text-transform:uppercase;
 	font-size:1em;
@@ -128,7 +128,7 @@ img {
 	font:1.8em Georgia, serif;
 	font-style:italic;
 	color:#999;
-	padding-bottom:25px;
+	padding:0 0 25px;
 	float:left;
 }
 	#header p span {
@@ -167,6 +167,7 @@ img {
 	#lifestream li p.tags {
 		font-size:1.1em;
 		padding:0 6px 12px;
+		color:#a3a3a3;
 	}
 	#lifestream li p.read {
 		padding-bottom:22px;
@@ -200,6 +201,9 @@ img {
 
 /* blog.critical */
 #lifestream li.blogcritical h2 { font-size:1.8em; padding-top:16px; padding-bottom:16px; }
+
+/* Delicious */
+#lifestream li.delicious p.tags { padding-bottom:20px; }
 
 /*
 ---- Colour Schemes

@@ -60,8 +60,8 @@ module ApplicationHelper
     r = ''
     tags = tags.split(' ')
     tags.each do |tag|
-      r += '<a href="'+base_url+tag+'/">'+tag+'</a>'
-      r += (tag == tags[(tags.size)-2]) ? '&nbsp;' : ' '
+      r += '<a href="'+base_url+tag+'">'+tag+'</a>'
+      r += (tag == tags[(tags.size)-2]) ? '&nbsp;and&nbsp;' : ', ' if (tag != tags[(tags.size)-1])
     end
     r
   end

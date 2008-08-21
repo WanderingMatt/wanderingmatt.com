@@ -1,0 +1,3 @@
+<h2><%= link_to widont(h(item.title)), item.url %></h2>
+<p class="tags"><%= link_to_tags item.tags, 'http://delicious.com/pizzaguy234/' %></p>
+<p class="date-time"><%= item.published_at.strftime("%A %d %B, %I:%M%p") %></p>

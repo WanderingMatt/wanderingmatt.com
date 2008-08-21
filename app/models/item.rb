@@ -38,7 +38,7 @@ class Item < ActiveRecord::Base
     self.title = CGI.unescapeHTML((@data/:title).inner_html)
     self.description = CGI.unescapeHTML((@data/:description).inner_html)
     self.url = CGI.unescapeHTML((@data/:link).inner_html)
-    self.tags = ((@data/:subject).inner_html.empty?) ? CGI.unescapeHTML((@data/'media:category').inner_html) : CGI.unescapeHTML((@data/'dc:subject').inner_html)
+    self.tags = ((@data/'dc:subject').inner_html.empty?) ? CGI.unescapeHTML((@data/'media:category').inner_html) : CGI.unescapeHTML((@data/'dc:subject').inner_html)
     
     published_at = ((@data/'dc:date').inner_html.empty?) ? CGI.unescapeHTML((@data/:pubDate).inner_html) : CGI.unescapeHTML((@data/'dc:date').inner_html)
     self.published_at = Time.parse(published_at.to_s);
