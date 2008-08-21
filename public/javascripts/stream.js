@@ -1,5 +1,7 @@
 var LifeStream = {
 	
+	scroll_complete : false,
+	
 	init : function()
 	{
 		LifeStream.backToTop();
@@ -53,11 +55,14 @@ var LifeStream = {
 	},
 	
 	infiniteScroll : function()
-	{
+	{	
 		$(window).scroll(function(){
-			if ($(window).scrollTop() >= ($(document).height() - $(window).height()) - 100) {
-				LifeStream.showHiddenItems();
-				LifeStream.getItems();
+			
+			if (LifeStream.scroll_complete == false) {
+				if ($(window).scrollTop() >= ($(document).height() - $(window).height()) - 100) {
+					LifeStream.showHiddenItems();
+					LifeStream.getItems();
+				}
 			}
 		});
 	},
@@ -67,8 +72,11 @@ var LifeStream = {
 		var last_item_id = $('#lifestream li:last').attr('id');
 		var offset = parseInt(last_item_id.replace('item-', '')) + 1;
 		
-		$.get('/items.js', { offset : offset }, function(data){
+		$.get('/items.js', { offset : offset }, function(data) {
 			$('#lifestream').append(data);
+			if (data == '') {
+				LifeStream.scroll_complete = true;
+			}
 		});
 	},
 	
