@@ -2,6 +2,7 @@ log/*.log
 log/**/*
 tmp/**/*
 public/images/items/**/*
+public/cache/**/*
 # Other useful tidbits
 .DS_Store
 doc/api

@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  caches_page :index
   
   def index
     limit = (params['offset']) ? 10 : 30
