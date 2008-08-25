@@ -3,6 +3,6 @@
 		<%= render :partial => "partials/#{item.feed.permalink}", :locals => { :item => item } %>
 	</div>
 	<div class="header">
-		<h4><strong><%= item.feed.name %></strong> #000000</h4>
+		<h4><strong><%= item.feed.name %></strong> #<%= item_unique_id %></h4>
 	</div>
 </li>

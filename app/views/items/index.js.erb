@@ -1,6 +1,7 @@
 <% unless @items.empty? %>
 	<% for item in @items %>
-		<%= render :partial => "item.html.erb", :locals => { :item => item, :offset => @offset } %>
+		<%= render :partial => "item.html.erb", :locals => { :item => item, :offset => @offset, :item_unique_id => @total } %>
 		<% @offset+=1 %>
+		<% @total-=1 %>
 	<% end %>
 <% end %>
