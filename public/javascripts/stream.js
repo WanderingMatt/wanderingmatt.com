@@ -72,7 +72,7 @@ var LifeStream = {
 		var last_item_id = $('#lifestream li:last').attr('id');
 		var offset = parseInt(last_item_id.replace('item-', '')) + 1;
 		
-		$.get('/items.js', { offset : offset }, function(data) {
+		$.get('/javascripts/items/'+offset+'.js', null, function(data) {
 			$('#lifestream').append(data);
 			if (data == '') {
 				LifeStream.scroll_complete = true;

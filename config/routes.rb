@@ -49,5 +49,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :feeds, :items
   
   map.root :controller => 'items'
+  map.connect 'javascripts/items/:id.js', :controller => 'items', :format => 'js'
   
 end
