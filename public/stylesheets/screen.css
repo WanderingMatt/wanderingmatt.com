@@ -142,7 +142,17 @@ img {
 		color:#f5f5f5;
 		border:none;
 	}
-	
+
+#fade-out {
+	position:fixed;
+	width:100%;
+	top:100%;
+	left:0;
+	margin-top:-175px;
+	height:175px;
+	background:transparent url(../images/blank/fade-out.png) repeat-x top left;
+}
+
 /*
 ---- Life Stream
 */
