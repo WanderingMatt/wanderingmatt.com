@@ -44,4 +44,9 @@ class Admin::FeedsController < ApplicationController
     redirect_to admin_root_path
   end
   
+  def cache
+    @items = Feed.cache_all
+    render :layout => 'admin'
+  end
+  
 end

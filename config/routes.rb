@@ -43,7 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.root :controller => 'feeds'
-    admin.resources :feeds
+    admin.resources :feeds, :collection => { :cache => :get }
   end
   
   map.resources :feeds, :items
