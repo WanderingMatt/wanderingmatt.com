@@ -1,9 +1,6 @@
 <% unless @items.empty? %>
 	
 	<ol id="lifestream">
-		<li>
-			<h2><%= Time.now %></h2>
-		</li>
 		<% for item in @items %>
 			<%= render :partial => "item.html.erb", :locals => { :item => item, :offset => @offset, :item_unique_id => @total } %>
 			<% @offset+=1 %>
