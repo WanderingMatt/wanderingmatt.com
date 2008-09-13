@@ -1,7 +1,7 @@
 <% unless colour_schemes.empty? %>
 	<ul>
 		<% colour_schemes.each do |colour_scheme| %>
-			<li id="<%= colour_scheme.downcase %>"<%= ' class="active"' if current_colour_scheme == colour_scheme %>><a href="?<%= colour_scheme.downcase %>" title="Switch to <%= colour_scheme %> colour scheme"><%= colour_scheme %></a></li>
+			<li id="<%= colour_scheme.downcase %>"<%= ' class="active"' if current_colour_scheme == colour_scheme %>><a href="<%= colour_scheme.downcase %>" title="Switch to <%= colour_scheme %> colour scheme"><%= colour_scheme %></a></li>
 		<% end %>
 	</ul>
 <% end %>

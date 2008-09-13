@@ -6,7 +6,7 @@ var LifeStream = {
 	{
 		LifeStream.fadeOut();
 		LifeStream.backToTop();
-		// LifeStream.styleSwitcher();
+		LifeStream.styleSwitcher();
 		LifeStream.infiniteScroll();
 	},
 	
@@ -25,6 +25,7 @@ var LifeStream = {
 	
 	styleSwitcher : function()
 	{
+		LifeStream.applyInitialStyle();
 		LifeStream.activeFirst();
 		
 		$("#header ul").hover(
@@ -42,6 +43,18 @@ var LifeStream = {
 		});
 	},
 	
+	applyInitialStyle : function()
+	{
+		if (!$('body').hasClass('fixed')) {
+			
+			elements = $('#header ul li');
+			random_value = Math.floor(Math.random() * elements.length);
+			
+			id = $(elements[random_value]).attr('id');
+			LifeStream.switchStyle($('#'+id+' a'));
+		}
+	},
+	
 	activeFirst : function()
 	{
 		$("#header ul li.active").prependTo($("#header ul"));
@@ -50,7 +63,7 @@ var LifeStream = {
 	switchStyle : function(element)
 	{
 		current_class = $('body').attr('class');
-		new_class = $(element).attr('href').replace('?', '');
+		new_class = $(element).attr('href');
 		
 		if (current_class != new_class) {
 			$('body').removeClass().addClass(new_class);

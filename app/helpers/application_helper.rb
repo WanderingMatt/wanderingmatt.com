@@ -14,7 +14,7 @@ module ApplicationHelper
   def current_colour_scheme
     unless @current_colour_scheme
       colour_schemes.each do |colour|
-        if params.has_key?(colour.downcase)
+        if params['colour_scheme'] == colour.downcase
           @current_colour_scheme = colour + ' fixed'
         end
       end
@@ -24,7 +24,7 @@ module ApplicationHelper
   
   def colour_schemes
     # @colour_schemes ||= ['Black', 'White', 'Vintage', 'Bleached', 'Rich']
-    @colour_schemes ||= ['Bleached', 'Rich']
+    @colour_schemes ||= ['Black']
   end
   
   def current_age

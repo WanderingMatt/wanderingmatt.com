@@ -50,5 +50,6 @@ ActionController::Routing::Routes.draw do |map|
   
   map.root :controller => 'items'
   map.connect 'javascripts/items/:id.js', :controller => 'items', :format => 'js'
+  map.connect '/:colour_scheme', :controller => 'items'
   
 end
