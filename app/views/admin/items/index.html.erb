@@ -1,0 +1,33 @@
+<h2><%= @feed.name %> Items</h2>
+
+<%= show_flash %>
+
+<% unless @feed.items.empty? %>
+
+	<table>
+		
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			
+			<% for item in @feed.items %>
+			
+				<tr>
+					<td><strong><%= item.title %></strong></td>
+					<td><%= link_to 'Destroy', admin_feed_item_path(@feed, item), :confirm => 'Are you sure?', :method => :delete %></td>
+				</tr>
+			
+			<% end %>
+			
+		</tbody>
+		
+	</table>
+
+<% end %>
+
+<p><%= link_to 'Back', admin_feeds_path %></p>
