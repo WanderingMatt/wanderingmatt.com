@@ -115,6 +115,9 @@ img {
 		float:left;
 		display:none;
 	}
+	#header ul li.active {
+		display:block;
+	}
 		#header ul li a {
 			display:block;
 			width:24px;
@@ -217,6 +220,39 @@ img {
 /*
 ---- Colour Schemes
 */
+body.black #header ul,
+body.bleached #header ul,
+body.rich #header ul,
+body.vintage #header ul,
+body.white #header ul {
+	width:auto;
+}
+
+#black { background-color:#00a2ff; }
+body.black { background-color:#202020; }
+body.black #container { background:#202020 url(../images/black/backie.jpg) no-repeat fixed 50% 0; }
+body.black h1 a { background-image:url(../images/black/andy-pearson.gif); }
+body.black h2 { color:#9a9ea1; }
+body.black h2 a { color:#99daff; }
+body.black h3 { color:#c1c6c9; }
+body.black h4 { color:#4d4f50; }
+body.black h4 strong { color:#9a9ea1; }
+body.black p { color:#cdd1d4; }
+body.black a { color:#ccecff; border-bottom-color:#323232; }
+body.black a:hover,
+body.black #lifestream li p.date-time a:hover { color:#00a2ff; border-bottom-color:#00a2ff; }
+body.black #header p { color:#797979; }
+body.black #header p span { background-color:#141414; }
+body.black #header p a,
+body.black #header p a:hover { color:#cdd1d4; }
+body.black #lifestream li { border-top-color:#4d4d4d; }
+body.black #lifestream li p.date-time { color:#4a4a4a; border-top-color:#323232; }
+body.black #lifestream li p.date-time a { color:#4a4a4a; }
+body.black #lifestream li p.tags { color:#cdd1d4; }
+body.black #fade-out { background-image:url(../images/black/fade-out.png); }
+
+
+/*
 #bleached { background-color:#ff5e1d; }
 body.bleached { background-color:#d9d5cb; }
 body.bleached #container { background:#d9d5cb url(../images/bleached/backie.jpg) no-repeat fixed 50% 0; }
@@ -236,6 +272,7 @@ body.bleached #lifestream li p.date-time a { color:#898680; }
 body.bleached #lifestream li p.date-time a:hover { color:#ff5e1d; border-bottom-color:#ff5e1d; }
 
 #rich { background-color:#f2e985; }
+*/
 
 /*
 ---- Javascript

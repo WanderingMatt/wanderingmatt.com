@@ -23,7 +23,7 @@ module ApplicationHelper
   end
   
   def colour_schemes
-    # @colour_schemes ||= ['Black', 'White', 'Vintage', 'Bleached', 'Rich']
+    # @colour_schemes ||= ['Black', 'Bleached', 'Rich', 'Vintage', 'White']
     @colour_schemes ||= ['Black']
   end
   
