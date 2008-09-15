@@ -71,14 +71,16 @@ var LifeStream = {
 			$('#'+current_class).removeClass('active');
 			$('#'+new_class).addClass('active');
 			LifeStream.activeFirst();
-			LifeStream.switchFavicon('/images/'+new_class+'/favicon.ico');
+			LifeStream.switchFavicon('images/'+new_class+'/favicon.ico');
 		}
 	},
 	
 	switchFavicon : function(favicon_path)
 	{
 		$("link[rel='shortcut icon']").remove();
-		$('head').append('<link rel="shortcut icon" type="image/x-icon" href="'+favicon_path+'" />')
+		$("link[rel='icon']").remove();
+		$('head').append('<link rel="icon" type="image/icon" href="'+favicon_path+'" />');
+		$('head').append('<link rel="shortcut icon" type="image/icon" href="'+favicon_path+'" />');
 	},
 	
 	infiniteScroll : function()
