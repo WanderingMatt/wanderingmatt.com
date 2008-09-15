@@ -13,7 +13,8 @@
 				<th>Name</th>
 				<th>URL</th>
 				<th>Items</th>
-				<th>Status</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
 				<th>&nbsp;</th>
 				<th>&nbsp;</th>
 			</tr>
@@ -28,6 +29,7 @@
 					<td><%= link_to h(feed.url), h(feed.url) %></td>
 					<td><%= feed.items.count %> <%= link_to 'View', admin_feed_items_path(feed) %></td>
 					<td><%= feed.active == true ? 'Active' : 'Deactivated' %></td>
+					<td><%= feed.visible == true ? 'Visible' : 'Hidden' %></td>
 					<td><%= link_to 'Edit', edit_admin_feed_path(feed) %></td>
 					<td><%= link_to 'Destroy', admin_feed_path(feed), :confirm => 'Are you sure?', :method => :delete %></td>
 				</tr>

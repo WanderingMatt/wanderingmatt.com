@@ -3,6 +3,16 @@ class Item < ActiveRecord::Base
   belongs_to :feed
   belongs_to :image
   
+  def self.find_lifestream(offset, limit)
+    self.find(:all,
+      :conditions => { 'feeds.visible' => true },
+      :limit => limit,
+      :order => 'published_at DESC',
+      :offset => offset,
+      :include => [:feed, :image]
+    )
+  end
+  
   def prepare_and_save(feed, xml_data)
     self.feed_id = feed.id
     self.cached_at = feed.cached_at
