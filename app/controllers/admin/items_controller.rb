@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   
+  cache_sweeper :site_sweeper, :only => [:destroy]
   before_filter :authenticate
   layout 'admin'
   

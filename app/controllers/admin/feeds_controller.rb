@@ -1,5 +1,6 @@
 class Admin::FeedsController < ApplicationController
   
+  cache_sweeper :site_sweeper, :only => [:create, :update, :destroy, :cache]
   before_filter :authenticate
   layout 'admin'
   
