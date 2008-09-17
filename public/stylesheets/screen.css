@@ -278,6 +278,31 @@ body.bleached #lifestream li p.tags { color:#898680; }
 body.bleached #lifestream li p.tags a { color:#898680; }
 body.bleached #fade-out { background-image:url(../images/bleached/fade-out.png); }
 
+#rich { background-color:#f2e985; }
+body.rich { background-color:#2b0d1f; }
+body.rich #container { background:#2b0d1f url(../images/rich/backie.jpg) no-repeat fixed 50% 0; }
+body.rich h1 a { background-image:url(../images/rich/andy-pearson.gif); }
+body.rich h2 { color:#776d73; }
+body.rich h2 a { color:#c2ba6a; }
+body.rich h3 { color:#c6c4b0; }
+body.rich h4 { color:#553d4c; }
+body.rich h4 strong { color:#806e79; }
+body.rich p { color:#c6c4b0; }
+body.rich a { color:#f7f2b6; border-bottom-color:#1d0b16; }
+body.rich a:hover,
+body.rich #lifestream li p.tags a:hover,
+body.rich #lifestream li p.date-time a:hover { color:#fff; border-bottom-color:#fff; }
+body.rich #header p { color:#999; }
+body.rich #header p span { background-color:#1a0813; }
+body.rich #header p a,
+body.rich #header p a:hover { color:#c2ba6a; }
+body.rich #lifestream li { border-top-color:#1a0813; }
+body.rich #lifestream li p.date-time { color:#523a49; border-top-color:#220a19; }
+body.rich #lifestream li p.date-time a { color:#523a49; }
+body.rich #lifestream li p.tags { color:#4a3c45; }
+body.rich #lifestream li p.tags a { color:#4a3c45; }
+body.rich #fade-out { background-image:url(../images/rich/fade-out.png); }
+
 /*
 ---- Javascript
 */

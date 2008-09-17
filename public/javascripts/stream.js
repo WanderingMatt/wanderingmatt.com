@@ -71,7 +71,7 @@ var LifeStream = {
 			$('#'+current_class).removeClass('active');
 			$('#'+new_class).addClass('active');
 			LifeStream.activeFirst();
-			LifeStream.switchFavicon('images/'+new_class+'/favicon.ico');
+			LifeStream.switchFavicon('/images/'+new_class+'/favicon.ico');
 		}
 	},
 	
