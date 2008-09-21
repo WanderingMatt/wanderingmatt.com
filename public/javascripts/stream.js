@@ -68,7 +68,7 @@ var LifeStream = {
 		
 		if (current_class != new_class) {
 			$('body').removeClass().addClass(new_class);
-			$('#'+current_class).removeClass('active');
+			$('.active').removeClass('active');
 			$('#'+new_class).addClass('active');
 			LifeStream.activeFirst();
 			LifeStream.switchFavicon('/images/'+new_class+'/favicon.ico');
