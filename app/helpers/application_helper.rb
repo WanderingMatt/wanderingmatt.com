@@ -24,7 +24,7 @@ module ApplicationHelper
   
   def colour_schemes
     # @colour_schemes ||= ['Black', 'Bleached', 'Rich', 'Vintage', 'White']
-    @colour_schemes ||= ['Black', 'Bleached', 'Rich']
+    @colour_schemes ||= ['Black', 'Bleached', 'Rich', 'Vintage']
   end
   
   def current_age

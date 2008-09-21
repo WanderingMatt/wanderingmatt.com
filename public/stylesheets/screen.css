@@ -209,7 +209,8 @@ img {
 
 /* Flickr */
 #lifestream li.flickr div.content div { padding:0 6px 3px; }
-#lifestream li.flickr p.date-time { border:none; }
+#lifestream li.flickr p.date-time,
+#lifestream li.twitter p.date-time a { border:none; }
 
 /* blog.critical */
 #lifestream li.blogcritical h2 { font-size:1.8em; padding-top:16px; padding-bottom:16px; }
@@ -302,6 +303,31 @@ body.rich #lifestream li p.date-time a { color:#523a49; }
 body.rich #lifestream li p.tags { color:#4a3c45; }
 body.rich #lifestream li p.tags a { color:#4a3c45; }
 body.rich #fade-out { background-image:url(../images/rich/fade-out.png); }
+
+#vintage { background-color:#ededed; }
+body.vintage { background-color:#81a0a0; }
+body.vintage #container { background:#81a0a0 url(../images/vintage/backie.jpg) no-repeat fixed 50% 0; }
+body.vintage h1 a { background-image:url(../images/vintage/andy-pearson.gif); }
+body.vintage h2 { color:#b7cbcb; }
+body.vintage h2 a { color:#ededed; }
+body.vintage h3 { color:#dddddb; }
+body.vintage h4 { color:#678080; }
+body.vintage h4 strong { color:#4d6060; }
+body.vintage p { color:#cfdcdc; }
+body.vintage a { color:#b7cbcb; border-bottom-color:#678080; }
+body.vintage a:hover,
+body.vintage #lifestream li p.tags a:hover,
+body.vintage #lifestream li p.date-time a:hover { color:#fff; border-bottom-color:#fff; }
+body.vintage #header p { color:#bbbbb7; }
+body.vintage #header p span { background-color:#4d6060; }
+body.vintage #header p a,
+body.vintage #header p a:hover { color:#d7d8d6; }
+body.vintage #lifestream li { border-top-color:#455353; }
+body.vintage #lifestream li p.date-time { color:#b7cbcb; border-top-color:#678080; }
+body.vintage #lifestream li p.date-time a { color:#b7cbcb; }
+body.vintage #lifestream li p.tags { color:#cfdcdc; }
+body.vintage #lifestream li p.tags a { color:#cfdcdc; }
+body.vintage #fade-out { background-image:url(../images/vintage/fade-out.png); }
 
 /*
 ---- Javascript
