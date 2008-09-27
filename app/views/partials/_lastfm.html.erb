@@ -1,5 +1,5 @@
 <div class="main">
-	<h2><%= link_to h(item.title), item.url %> <span>by <%= link_to h(item.description), item.artist_url %></span></h2>
+	<h2><%= link_to widont(h(item.title)), item.url %> <span>by <%= link_to widont(h(item.description)), item.artist_url %></span></h2>
 	<p class="date-time"><%= item.published_at.strftime("%A %d %B, %I:%M%p") %></p>
 </div>
 
