@@ -139,6 +139,7 @@ img {
 		display:block;
 		background-color:#333;
 		float:left;
+		white-space:nowrap;
 	}
 	#header p a,
 	#header p a:hover {
