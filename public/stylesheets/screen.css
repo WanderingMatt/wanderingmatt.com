@@ -358,7 +358,7 @@ body.white #lifestream li p.tags a { color:#858585; }
 Ugly CSS Hacks, only using because it has only taken a little bit of work to get the site working correctly in IE
 */
 
-* html #header { float:left; }
+* html #header { float:left; display:inline; }
 * html #header p span { white-space:nowrap; }
 * + html #header p span { white-space:nowrap; }
 
