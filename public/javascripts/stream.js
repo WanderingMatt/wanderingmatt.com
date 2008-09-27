@@ -53,6 +53,11 @@ var LifeStream = {
 			id = $(elements[random_value]).attr('id');
 			LifeStream.switchStyle($('#'+id+' a'));
 			LifeStream.switchFavicon('/images/'+id+'/favicon.ico');
+		
+		} else {
+			
+			id = $('.active').attr('id');
+			LifeStream.switchFavicon('/images/'+id+'/favicon.ico');
 		}
 	},
 	
