@@ -139,7 +139,6 @@ img {
 		display:block;
 		background-color:#333;
 		float:left;
-		white-space:nowrap;
 	}
 	#header p a,
 	#header p a:hover {
@@ -353,6 +352,16 @@ body.white #lifestream li p.tags a { color:#858585; }
 #header ul li.js_show {
 	display:block;
 }
+
+/*
+---- IE Fixes
+Ugly CSS Hacks, only using because it has only taken a little bit of work to get the site working correctly in IE
+*/
+
+* html #header { float:left; }
+* html #header p span { white-space:nowrap; }
+* + html #header p span { white-space:nowrap; }
+
 
 /* ---- Clearfix */
 .clearfix:after {
