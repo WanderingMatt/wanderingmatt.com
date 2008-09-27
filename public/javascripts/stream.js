@@ -4,15 +4,9 @@ var LifeStream = {
 	
 	init : function()
 	{
-		LifeStream.fadeOut();
 		LifeStream.backToTop();
 		LifeStream.styleSwitcher();
 		LifeStream.infiniteScroll();
-	},
-	
-	fadeOut : function()
-	{
-		$('body').append('<div id="fade-out"></div>');
 	},
 	
 	backToTop : function()
