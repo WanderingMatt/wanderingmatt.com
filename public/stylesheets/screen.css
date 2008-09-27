@@ -146,16 +146,6 @@ img {
 		border:none;
 	}
 
-#fade-out {
-	position:fixed;
-	width:100%;
-	top:100%;
-	left:0;
-	margin-top:-175px;
-	height:175px;
-	background:transparent url(../images/blank/fade-out.png) repeat-x top left;
-}
-
 /*
 ---- Life Stream
 */
@@ -252,7 +242,6 @@ body.black #lifestream li p.date-time { color:#4a4a4a; border-top-color:#323232;
 body.black #lifestream li p.date-time a { color:#4a4a4a; }
 body.black #lifestream li p.tags { color:#797979; }
 body.black #lifestream li p.tags a { color:#797979; }
-body.black #fade-out { background-image:url(../images/black/fade-out4.png); }
 
 #bleached { background-color:#ff5e1d; }
 body.bleached { background-color:#d9d5cb; }
@@ -277,7 +266,6 @@ body.bleached #lifestream li p.date-time { color:#898680; border-top-color:#c3c0
 body.bleached #lifestream li p.date-time a { color:#898680; }
 body.bleached #lifestream li p.tags { color:#898680; }
 body.bleached #lifestream li p.tags a { color:#898680; }
-body.bleached #fade-out { background-image:url(../images/bleached/fade-out.png); }
 
 #rich { background-color:#f2e985; }
 body.rich { background-color:#2b0d1f; }
@@ -302,7 +290,6 @@ body.rich #lifestream li p.date-time { color:#523a49; border-top-color:#220a19; 
 body.rich #lifestream li p.date-time a { color:#523a49; }
 body.rich #lifestream li p.tags { color:#4a3c45; }
 body.rich #lifestream li p.tags a { color:#4a3c45; }
-body.rich #fade-out { background-image:url(../images/rich/fade-out.png); }
 
 #vintage { background-color:#ededed; }
 body.vintage { background-color:#81a0a0; }
@@ -327,7 +314,6 @@ body.vintage #lifestream li p.date-time { color:#b7cbcb; border-top-color:#67808
 body.vintage #lifestream li p.date-time a { color:#b7cbcb; }
 body.vintage #lifestream li p.tags { color:#cfdcdc; }
 body.vintage #lifestream li p.tags a { color:#cfdcdc; }
-body.vintage #fade-out { background-image:url(../images/vintage/fade-out.png); }
 
 #white { background-color:#ff0096; }
 body.white { background-color:#fff; }
@@ -352,7 +338,6 @@ body.white #lifestream li p.date-time { color:#c2c2c2; border-top-color:#f6f6f6;
 body.white #lifestream li p.date-time a { color:#c2c2c2; }
 body.white #lifestream li p.tags { color:#858585; }
 body.white #lifestream li p.tags a { color:#858585; }
-body.white #fade-out { background-image:url(../images/white/fade-out.png); }
 
 /*
 ---- Javascript
