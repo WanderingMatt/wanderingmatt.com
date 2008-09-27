@@ -360,6 +360,7 @@ Ugly CSS Hacks, only using because it has only taken a little bit of work to get
 
 * html #header { float:left; }
 * html #header ul li { display:none; }
+* html #header ul li.active { display:none; }
 * html #header p span { white-space:nowrap; }
 * + html #header p span { white-space:nowrap; }
 
