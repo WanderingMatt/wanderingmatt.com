@@ -47,9 +47,20 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :feeds, :items
-  
   map.root :controller => 'items'
+  
+  map.with_options :controller => 'pages' do |page|
+    page.start '3', :action => 'start'
+    page.page_1 'loves', :action => 'page_1'
+    page.page_2 'loves/carrie-anne', :action => 'page_2'
+    page.page_3 'loves/carrie-anne/aldridge', :action => 'page_3'
+    page.page_4 'loves/carrie-anne/aldridge/with-all', :action => 'page_4'
+    page.page_5 'loves/carrie-anne/aldridge/with-all/his-heart', :action => 'page_5'
+    page.page_6 '3/years-together-today', :action => 'page_6'
+    page.page_7 '3/rd-december', :action => 'page_7'
+  end
+  
   map.connect 'javascripts/items/:id.js', :controller => 'items', :format => 'js'
-  map.connect '/:colour_scheme', :controller => 'items'
+  map.connect ':colour_scheme', :controller => 'items', :colour_scheme => /(black|bleached|rich|vintage|white)/
   
 end

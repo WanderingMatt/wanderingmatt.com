@@ -74,4 +74,9 @@ module ApplicationHelper
     (post/"p:last-child").remove if (content.include? 'more-link')
     post
   end
+  
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
+  
 end
