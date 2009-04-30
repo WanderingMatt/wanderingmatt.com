@@ -1,6 +1,9 @@
 log/*.log
 log/**/*
 tmp/**/*
+config/deploy.rb
+config/database.yml
+config/lifestream.yml
 public/images/items/**/*
 public/cache/*
 public/cache/**/*
