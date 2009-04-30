@@ -6,7 +6,7 @@ class Feed < ActiveRecord::Base
   validates_presence_of :name, :url
   
   has_permalink :name, :permalink
-  has_many :items
+  has_many :items, :order => 'published_at DESC'
   named_scope :active, :conditions => { :active => true }
     
   def self.cache_all

@@ -14,6 +14,7 @@ class Item < ActiveRecord::Base
   end
   
   def prepare_and_save(feed, xml_data)
+    
     self.feed_id = feed.id
     self.cached_at = feed.cached_at
     
