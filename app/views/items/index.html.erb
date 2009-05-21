@@ -2,7 +2,7 @@
 	
 	<ol id="lifestream">
 		<% for item in @items %>
-			<%= render :partial => "item.html.erb", :locals => { :item => item, :offset => @offset, :item_unique_id => @total } %>
+			<%= render :partial => 'items/item', :locals => { :item => item, :offset => @offset, :item_unique_id => @total } %>
 			<% @offset+=1 %>
 			<% @total-=1 %>
 		<% end %>

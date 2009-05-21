@@ -147,6 +147,27 @@ img {
 	}
 
 /*
+---- Preview Message
+*/
+#preview {
+	padding:0 0 48px 0;
+}
+#preview p {
+	font-size:1.5em;
+	border:2px solid #f6d600;
+	background-color:#fff7c0;
+	padding:14px 18px;
+	color:#333;
+	border-radius:12px;
+	-webkit-border-radius:12px;
+	-moz-border-radius:12px;
+}
+#preview p a {
+	color:#333;
+	border-bottom-color:#333;
+}
+
+/*
 ---- Life Stream
 */
 #lifestream li {

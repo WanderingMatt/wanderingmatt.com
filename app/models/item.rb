@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
     self.find(:all,
       :conditions => { 'feeds.visible' => true },
       :limit => limit,
-      :order => 'published_at DESC',
+      :order => 'items.published_at DESC',
       :offset => offset,
       :include => [:feed, :image]
     )

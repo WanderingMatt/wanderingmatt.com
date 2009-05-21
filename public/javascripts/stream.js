@@ -1,12 +1,13 @@
 var LifeStream = {
 	
+	allow_infinite_scroll : true,
 	scroll_complete : false,
 	
 	init : function()
 	{
 		LifeStream.backToTop();
 		LifeStream.styleSwitcher();
-		LifeStream.infiniteScroll();
+		if (LifeStream.allow_infinite_scroll) LifeStream.infiniteScroll();
 	},
 	
 	backToTop : function()
