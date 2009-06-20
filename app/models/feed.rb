@@ -33,12 +33,16 @@ class Feed < ActiveRecord::Base
   end
   
   def format
-    @format ||= (url.end_with?('.xml')) ? 'XML' : 'RSS'
+    @format = 'RSS'
+    @format = 'XML' if url.end_with?('.xml')
+    @format = 'ATOM' if url.end_with?('.atom')
   end
   
   def elements
     if (format == 'XML')
       (xml_source/:track)
+    elsif (format == 'ATOM')
+      (xml_source/:entry)
     else
       (xml_source/:item)
     end

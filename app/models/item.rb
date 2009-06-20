@@ -76,6 +76,13 @@ class Item < ActiveRecord::Base
     self.description = (@data/'content:encoded').inner_html
   end
   
+  def format_github_data
+    format_feed_data
+    self.description = CGI.unescapeHTML((@data/:content).inner_html).strip
+    self.url = CGI.unescapeHTML((@data/'link').first[:href])
+    self.published_at = Time.parse((@data/:published).inner_html)
+  end
+  
   def artist_url
     if self.feed.permalink == 'lastfm'
       parts = self.url.split("_")

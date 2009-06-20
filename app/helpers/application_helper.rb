@@ -55,6 +55,12 @@ module ApplicationHelper
     widont(text)
   end
   
+  def github(text)
+    text.gsub!("andypearson ", '')
+    text = text.capitalize
+    widont(text)
+  end
+  
   def link_to_tags(tags, base_url)
     r = ''
     tags = tags.split(' ')
