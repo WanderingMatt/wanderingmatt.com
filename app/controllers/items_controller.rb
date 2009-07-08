@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     limit = (params['id']) ? 10 : 30
     @offset = (params['id']) ? params['id'].to_i : 0
     @items = Item.find_lifestream(@offset, limit)
-    @total = Item.count - @offset
+    @total = Item.count_lifestream(@offset)
   end
   
 end

@@ -13,6 +13,13 @@ class Item < ActiveRecord::Base
     )
   end
   
+  def self.count_lifestream(offset)
+    self.count(
+      :conditions => { 'feeds.visible' => true },
+      :include => [:feed, :image]
+    ) - offset
+  end
+  
   def prepare_and_save(feed, xml_data)
     
     self.feed_id = feed.id
