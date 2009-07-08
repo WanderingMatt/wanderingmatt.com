@@ -229,6 +229,9 @@ img {
 /* Delicious */
 #lifestream li.delicious p.tags { padding-bottom:20px; }
 
+/* Github */
+#lifestream li.github p.date-time { border:none; }
+
 /*
 ---- Colour Schemes
 */
