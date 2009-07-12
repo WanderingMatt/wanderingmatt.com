@@ -36,6 +36,7 @@ class Feed < ActiveRecord::Base
     @format = 'RSS'
     @format = 'XML' if url.end_with?('.xml')
     @format = 'ATOM' if url.end_with?('.atom') || url.match(/youtube/)
+    @format
   end
   
   def elements
