@@ -11,7 +11,7 @@ class Admin::PreviewController < ApplicationController
         :include => [:feed, :image]
       )
     end
-    
+
     @total = @items.size
     @offset = 0
     @preview = true

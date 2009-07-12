@@ -232,6 +232,9 @@ img {
 /* Github */
 #lifestream li.github p.date-time { border:none; }
 
+/* YouTube */
+#lifestream li.youtube .video { padding:12px 6px 0; }
+
 /*
 ---- Colour Schemes
 */

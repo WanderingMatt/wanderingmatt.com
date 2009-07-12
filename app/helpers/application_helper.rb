@@ -85,4 +85,15 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
   
+  def embed_youtube_video(raw_url)
+    video_id = raw_url.split('=')[1]
+    url = "http://www.youtube.com/v/#{video_id}&amp;hl=en&amp;fs=1&amp;showinfo=0"
+    <<-html
+      <object type="application/x-shockwave-flash" data="#{url}" width="408" height="245">
+      	<param name="movie" value="#{url}" /><param name="FlashVars" value="playerMode=embedded" />
+      	<param name="wmode" value="transparent" />
+      </object>
+    html
+  end
+  
 end

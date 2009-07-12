@@ -90,6 +90,12 @@ class Item < ActiveRecord::Base
     self.published_at = Time.parse((@data/:published).inner_html)
   end
   
+  def format_youtube_data
+    format_feed_data
+    self.url = CGI.unescapeHTML((@data/"link[@rel='alternate']").first[:href])
+    self.published_at = Time.parse((@data/:published).inner_html)
+  end
+  
   def artist_url
     if self.feed.permalink == 'lastfm'
       parts = self.url.split("_")
