@@ -48,7 +48,7 @@ var LifeStream = {
 			id = $(elements[random_value]).attr('id');
 			LifeStream.switchStyle($('#'+id+' a'));
 			LifeStream.switchFavicon('/images/'+id+'/favicon.ico');
-		
+			
 		} else {
 			
 			id = $('.active').attr('id');
@@ -64,7 +64,7 @@ var LifeStream = {
 	switchStyle : function(element)
 	{
 		current_class = $('body').attr('class');
-		new_class = $(element).attr('href');
+		new_class = $(element).attr('href').replace('scheme/', '');
 		
 		if (current_class != new_class) {
 			$('body').removeClass().addClass(new_class);

@@ -51,6 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'items'
   
   map.connect 'javascripts/items/:id.js', :controller => 'items', :format => 'js'
-  map.connect ':colour_scheme', :controller => 'items', :colour_scheme => /(black|bleached|rich|vintage|white)/
+  map.connect 'stylesheets/colours.css', :controller => 'colour_schemes', :format => 'css'
+  map.connect 'scheme/:colour_scheme', :controller => 'items'
   
 end
