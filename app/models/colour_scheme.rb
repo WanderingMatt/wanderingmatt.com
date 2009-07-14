@@ -75,6 +75,22 @@ class ColourScheme
       :border => '455353',
       :datetime => 'b7cbcb',
       :tags => 'cfdcdc'
+    },
+    'white' => {
+      :name => 'White',
+      :accent => 'ff0096',
+      :background => 'fff',
+      :h2 => '676767',
+      :h2_link => '99005a',
+      :h3 => '858585',
+      :h4 => 'a4a4a4',
+      :typography => '525252',
+      :link_border => 'f6f6f6',
+      :header_background => 'f0f0f0',
+      :header_link => '99005a',
+      :border => 'c5c5c5',
+      :datetime => 'c2c2c2',
+      :tags => '858585'
     }
   }
   

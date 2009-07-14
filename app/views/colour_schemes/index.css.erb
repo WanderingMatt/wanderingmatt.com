@@ -13,11 +13,11 @@ body.<%= key %> h3 { color:#<%= scheme[:h3] %>; }
 body.<%= key %> h4 { color:#<%= scheme[:h4] %>; }
 body.<%= key %> h4 strong { color:#<%= (scheme[:h4_strong]) ? scheme[:h4_strong] : scheme[:h2] %>; }
 body.<%= key %> p { color:#<%= (scheme[:typography]) ? scheme[:typography] : scheme[:h2] %>; }
-body.<%= key %> a { color:#<%= scheme[:link] %>; border-bottom-color:#<%= scheme[:link_border] %>; }
+body.<%= key %> a { color:#<%= (scheme[:link]) ? scheme[:link] : scheme[:h2_link] %>; border-bottom-color:#<%= scheme[:link_border] %>; }
 body.<%= key %> a:hover,
 body.<%= key %> #lifestream li p.tags a:hover,
 body.<%= key %> #lifestream li p.date-time a:hover { color:#<%= (scheme[:link_hover]) ? scheme[:link_hover] : scheme[:accent] %>; border-bottom-color:#<%= (scheme[:link_hover]) ? scheme[:link_hover] : scheme[:accent] %>; }
-body.<%= key %> #header p { color:#<%= scheme[:header] %>; }
+body.<%= key %> #header p { color:#<%= (scheme[:header]) ? scheme[:header] : scheme[:h2] %>; }
 body.<%= key %> #header p span { background-color:#<%= scheme[:header_background] %>; }
 body.<%= key %> #header p a,
 body.<%= key %> #header p a:hover { color:#<%= scheme[:header_link] %>; }
@@ -29,29 +29,3 @@ body.<%= key %> #lifestream li p.tags { color:#<%= (scheme[:tags]) ? scheme[:tag
 body.<%= key %> #lifestream li p.tags a { color:#<%= (scheme[:tags]) ? scheme[:tags] : scheme[:datetime] %>; }
 
 <% end -%>
-
-/*
-#white { background-color:#ff0096; }
-body.white { background-color:#fff; }
-body.white #container { background:#fff url(../images/white/backie.jpg) no-repeat fixed 50% 0; }
-body.white h1 a { background-image:url(../images/white/andy-pearson.gif); }
-body.white h2 { color:#676767; }
-body.white h2 a { color:#99005a; }
-body.white h3 { color:#858585; }
-body.white h4 { color:#a4a4a4; }
-body.white h4 strong { color:#676767; }
-body.white p { color:#525252; }
-body.white a { color:#99005a; border-bottom-color:#f6f6f6; }
-body.white a:hover,
-body.white #lifestream li p.tags a:hover,
-body.white #lifestream li p.date-time a:hover { color:#ff0096; border-bottom-color:#ff0096; }
-body.white #header p { color:#676767; }
-body.white #header p span { background-color:#f0f0f0; }
-body.white #header p a,
-body.white #header p a:hover { color:#99005a; }
-body.white #lifestream li { border-top-color:#c5c5c5; }
-body.white #lifestream li p.date-time { color:#c2c2c2; border-top-color:#f6f6f6; }
-body.white #lifestream li p.date-time a { color:#c2c2c2; }
-body.white #lifestream li p.tags { color:#858585; }
-body.white #lifestream li p.tags a { color:#858585; }
-*/
