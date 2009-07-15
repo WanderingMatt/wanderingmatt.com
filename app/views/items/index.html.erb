@@ -1,32 +1,3 @@
-<% 
-	
-	# lastfm = false
-	# lastfm_item_key = 0
-	# i=0
-	# items = []
-	# unless @items.empty?
-	# 	for item in @items
-	# 		
-	# 		item['child_items'] = []
-	# 		if item.feed.permalink == 'lastfm' && !lastfm
-	# 			items[i] = item
-	# 			lastfm = true
-	# 			lastfm_item_key = i
-	# 			i+=1
-	# 		elsif item.feed.permalink == 'lastfm'
-	# 			items[lastfm_item_key]['child_items'] << item
-	# 		else
-	# 			items[i] = item
-	# 			lastfm = false
-	# 			i+=1
-	# 		end
-	# 		
-	# 	end
-	# end
-	# @items = items
-
-%>
-
 <pre>
 
 <% @items.to_yaml %>

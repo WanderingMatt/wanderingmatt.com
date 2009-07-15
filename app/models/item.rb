@@ -6,30 +6,37 @@ class Item < ActiveRecord::Base
   belongs_to :image
   
   def self.lifestream(offset, limit)
-    items = self.group_items(self.find_lifestream(offset, limit))
+    items = self.group_items(offset, limit)
     total = self.count_lifestream(offset)
     return items, total
   end
   
-  def self.group_items(ungrouped_items)
+  def self.group_items(offset, limit, items = [], lastfm_item = nil)
     
-    items, lastfm_item = [], nil
-    
+    ungrouped_items = self.find_lifestream(offset, limit)
+
     unless ungrouped_items.empty?
       for item in ungrouped_items
+        if items.length < limit
         
-        item.grouped_items = []
-        if item.feed.permalink == 'lastfm' && !lastfm_item
-          items << item
-          lastfm_item = items.last
-        elsif item.feed.permalink == 'lastfm'
-          lastfm_item.grouped_items << item
-        else
-          items << item
-          lastfm_item = nil
+          item.grouped_items = []
+          if item.feed.permalink == 'lastfm' && !lastfm_item
+            items << item
+            lastfm_item = items.last
+          elsif item.feed.permalink == 'lastfm'
+            lastfm_item.grouped_items << item
+          else
+            items << item
+            lastfm_item = nil
+          end
+          offset+=1
+        
         end
-        
       end
+    end
+    
+    if items.length < limit
+      items = self.group_items(offset, limit, items, lastfm_item)
     end
     
     items
