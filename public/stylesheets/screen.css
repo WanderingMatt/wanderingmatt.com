@@ -81,6 +81,19 @@ hr {
 img {
 	display:block;
 }
+pre {
+	clear:both;
+	margin-top:36px;
+	font-size:1.2em;
+	line-height:1.4;
+	color:#e2e1dc;
+	background-color:#232323;
+	border:3px solid #1c1c1c;
+	padding:15px;
+	overflow:auto;
+	font-family:"Monaco", "Courier New", Courier;
+}
+
 
 /*
 ---- Structure

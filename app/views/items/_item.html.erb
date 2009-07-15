@@ -1,4 +1,20 @@
-<li id="item-<%= offset %>" class="<%= item.feed.permalink %> clearfix<%= ' js_hide' if offset > 20 %>">
+<%
+
+	classes = [item.feed.permalink, 'clearfix']
+	classes << 'js_hide' if offset > 20
+	
+	
+	# 
+	#   if item.feed.permalink == 'lastfm'
+	# classes << 'first' if @compact_lastfm == false
+	#     classes << 'compact' if @compact_lastfm == true
+	#     @compact_lastfm = true
+	#   else
+	# @compact_lastfm = false
+	#   end
+	
+%>
+<li id="item-<%= offset %>" class="<%= classes.join ' ' %>">
 	<div class="content">
 		<%= render :partial => "partials/#{item.feed.permalink}", :locals => { :item => item } %>
 	</div>

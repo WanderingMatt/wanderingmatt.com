@@ -1,4 +1,50 @@
-<% unless @items.empty? %>
+<% 
+	
+	# lastfm = false
+	# lastfm_item_key = 0
+	# i=0
+	# items = []
+	# unless @items.empty?
+	# 	for item in @items
+	# 		
+	# 		item['child_items'] = []
+	# 		if item.feed.permalink == 'lastfm' && !lastfm
+	# 			items[i] = item
+	# 			lastfm = true
+	# 			lastfm_item_key = i
+	# 			i+=1
+	# 		elsif item.feed.permalink == 'lastfm'
+	# 			items[lastfm_item_key]['child_items'] << item
+	# 		else
+	# 			items[i] = item
+	# 			lastfm = false
+	# 			i+=1
+	# 		end
+	# 		
+	# 	end
+	# end
+	# @items = items
+
+%>
+
+<pre>
+
+<% @items.to_yaml %>
+
+<% @items.each_with_index do |item, key| -%>
+
+<%= key %>. <%= item.feed.permalink %> &ndash; <%= item.title %>
+<% unless item.grouped_items.empty? -%>
+<% for i in item.grouped_items -%>
+	&bull; <%= i.title %>
+<% end -%>
+<% end %>
+<% end -%>
+
+</pre>
+
+
+<!-- <% unless @items.empty? %>
 	
 	<ol id="lifestream">
 		<% for item in @items %>
@@ -8,4 +54,4 @@
 		<% end %>
 	</ol>
 	
-<% end %>
+<% end %> -->
