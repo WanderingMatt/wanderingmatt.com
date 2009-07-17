@@ -6,9 +6,9 @@ class Item < ActiveRecord::Base
   belongs_to :image
   
   def self.lifestream(offset, limit)
-    items = self.group_items(offset, limit)
     total = self.count_lifestream(offset)
-    return items, total
+    items, offset = self.group_items(offset, limit)
+    [items, total, offset]
   end
   
   def self.group_items(offset, limit, items = [], lastfm_item = nil)
@@ -35,11 +35,8 @@ class Item < ActiveRecord::Base
       end
     end
     
-    if items.length < limit
-      items = self.group_items(offset, limit, items, lastfm_item)
-    end
-    
-    items
+    items, offset = self.group_items(offset, limit, items, lastfm_item) if items.length < limit && offset < 100
+    return items, offset
   end
   
   def self.find_lifestream(offset, limit)

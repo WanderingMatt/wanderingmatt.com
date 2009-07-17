@@ -1,22 +1,22 @@
 <%
 
 	classes = [item.feed.permalink, 'clearfix']
-	classes << 'js_hide' if offset > 20
+	classes << 'js_hide' if index && index >= 20
 	
-	
-	# 
-	#   if item.feed.permalink == 'lastfm'
-	# classes << 'first' if @compact_lastfm == false
-	#     classes << 'compact' if @compact_lastfm == true
-	#     @compact_lastfm = true
-	#   else
-	# @compact_lastfm = false
-	#   end
+	id = (item == @items.last) ? ' id="item-'+(offset-1).to_s+'"' : '';
+	item_unique_id = (item_unique_id - item.grouped_items.length).to_s + '&ndash;' + item_unique_id.to_s unless item.grouped_items.empty?
 	
 %>
-<li id="item-<%= offset %>" class="<%= classes.join ' ' %>">
+<li<%= id %> class="<%= classes.join ' ' %>">
 	<div class="content">
 		<%= render :partial => "partials/#{item.feed.permalink}", :locals => { :item => item } %>
+		<% unless item.grouped_items.empty? %>
+<pre>
+<% for grouped_item in item.grouped_items -%>
+<%= grouped_item.title -%><br />
+<% end -%>
+</pre>
+		<% end %>
 	</div>
 	<div class="header">
 		<h4><strong><%= item.feed.name %></strong> #<%= item_unique_id %></h4>

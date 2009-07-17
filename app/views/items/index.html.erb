@@ -1,28 +1,10 @@
-<pre>
-
-<% @items.to_yaml %>
-
-<% @items.each_with_index do |item, key| -%>
-
-<%= key %>. <%= item.feed.permalink %> &ndash; <%= item.title %>
-<% unless item.grouped_items.empty? -%>
-<% for i in item.grouped_items -%>
-	&bull; <%= i.title %>
-<% end -%>
-<% end %>
-<% end -%>
-
-</pre>
-
-
-<!-- <% unless @items.empty? %>
+<% unless @items.empty? %>
 	
 	<ol id="lifestream">
-		<% for item in @items %>
-			<%= render :partial => 'items/item', :locals => { :item => item, :offset => @offset, :item_unique_id => @total } %>
-			<% @offset+=1 %>
-			<% @total-=1 %>
+		<% @items.each_with_index do |item, index| %>
+			<%= render :partial => 'items/item', :locals => { :item => item, :offset => @offset, :item_unique_id => @total, :index => index } %>
+			<% @total-=(1+item.grouped_items.length) %>
 		<% end %>
 	</ol>
 	
-<% end %> -->
+<% end %>
