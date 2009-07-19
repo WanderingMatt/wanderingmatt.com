@@ -1,13 +1,15 @@
+<% image_size = compact ? 24 : 46 %>
+
 <div class="main">
 	<h2><%= link_to widont(h(item.title)), item.url %> <span>by <%= link_to widont(h(item.description)), item.artist_url %></span></h2>
-	<p class="date-time"><%= item.published_at.strftime("%A %d %B, %I:%M%p") %></p>
+	<% unless compact %><p class="date-time"><%= item.published %></p><% end %>
 </div>
 
 <% if item.image_id != 0 && item.image %>
 	<% path = find_image_path(item.image) %>
 	<% unless path.blank? %>
 		<div class="album">
-			<a href="<%= lastfm_album_url(item) %>" title="<%=h item.image.title %>"><img src="<%= path %>" width="46" height="46" alt="<%=h item.image.title %>" /></a>
+			<a href="<%= lastfm_album_url(item) %>" title="<%=h item.image.title %>"><img src="<%= path %>" width="<%= image_size %>" height="<%= image_size %>" alt="<%=h item.image.title %>" /></a>
 		</div>
 	<% end %>
 <% end %>

@@ -9,13 +9,13 @@
 %>
 <li<%= id %> class="<%= classes.join ' ' %>">
 	<div class="content">
-		<%= render :partial => "partials/#{item.feed.permalink}", :locals => { :item => item } %>
+		<%= render :partial => "partials/#{item.feed.permalink}", :locals => { :item => item, :compact => false } %>
 		<% unless item.grouped_items.empty? %>
-<pre>
-<% for grouped_item in item.grouped_items -%>
-<%= grouped_item.title -%><br />
-<% end -%>
-</pre>
+			<div class="compact"><ol>
+				<% for grouped_item in item.grouped_items -%>
+					<li class="clearfix"><%= render :partial => "partials/#{item.feed.permalink}", :locals => { :item => grouped_item, :compact => true } %></li>
+				<% end -%>
+			</ol></div>
 		<% end %>
 	</div>
 	<div class="header">

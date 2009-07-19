@@ -139,4 +139,19 @@ class Item < ActiveRecord::Base
     end
   end
   
+  def published
+    unless grouped_items.empty?
+  		p = grouped_items.last.published_at.strftime("%A %d %B, %I:%M%p")
+  		date = grouped_items.last.published_at.strftime("%Y%m%d")
+  		if date = published_at.strftime("%Y%m%d")
+  			p += '&ndash;' + published_at.strftime("%I:%M%p")
+  		else
+  			p += '&ndash;' + published_at.strftime("%A %d %B, %I:%M%p")
+  		end
+  	else
+  		p = published_at.strftime("%A %d %B, %I:%M%p")
+  	end
+  	p
+  end
+  
 end

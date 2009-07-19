@@ -214,22 +214,24 @@ pre {
 		border:none;
 	}
 
-/* Last.fm */
-#lifestream li.lastfm { background:transparent url(../images/album.jpg) no-repeat 183px 3px; }
-#lifestream li.lastfm div.main {
-	float:right;
-	width:354px;
-} 
-#lifestream li.lastfm div.album {
-	float:left;
-	width:46px;
-	padding:3px 0 0 6px;
-}
+
+/*
+---- Last.fm
+*/
+#lifestream li.lastfm { background:transparent url(../images/album.jpg) no-repeat 183px 11px; }
+#lifestream li.lastfm div.content { padding-top:8px; }
+#lifestream li.lastfm div.main { float:right; width:360px; padding-bottom:4px; } 
+#lifestream li.lastfm div.album { float:left; width:46px; padding:3px 0 0 6px; }
 #lifestream li.lastfm h2 { padding:11px 0 0 0; }
-#lifestream li.lastfm .date-time {
-	border:none;
-	padding:0;
-}
+#lifestream li.lastfm .date-time { border:none; padding:0; }
+/* Grouped Items */
+#lifestream li.lastfm div.compact ol { border-top:1px solid #525252; }
+#lifestream li.lastfm div.compact li { padding:6px 0; border:none; background:transparent url(../images/album_compact.jpg) no-repeat 28px 6px; }
+#lifestream li.lastfm div.compact { padding-top:11px; clear:both; }
+#lifestream li.lastfm div.compact .album { padding:0 0 0 28px; width:24px; }
+#lifestream li.lastfm div.compact h2 { padding:5px 0; font-size:1.2em; }
+#lifestream li.lastfm div.compact h2 span { font-size:0.9em; }
+
 
 /* Flickr */
 #lifestream li.flickr div.content div { padding:0 6px 3px; }

@@ -27,5 +27,6 @@ body.<%= key %> #lifestream li p.date-time { color:#<%= scheme[:datetime] %>; bo
 body.<%= key %> #lifestream li p.date-time a { color:#<%= scheme[:datetime] %>; }
 body.<%= key %> #lifestream li p.tags { color:#<%= (scheme[:tags]) ? scheme[:tags] : scheme[:datetime] %>; }
 body.<%= key %> #lifestream li p.tags a { color:#<%= (scheme[:tags]) ? scheme[:tags] : scheme[:datetime] %>; }
+body.<%= key %> #lifestream li div.compact ol { border-top-color:#<%= scheme[:link_border] %>; }
 
 <% end -%>
