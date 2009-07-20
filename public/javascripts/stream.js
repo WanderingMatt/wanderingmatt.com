@@ -5,8 +5,9 @@ var LifeStream = {
 	
 	init : function()
 	{
-		LifeStream.backToTop();
 		LifeStream.styleSwitcher();
+		LifeStream.compactList();
+		LifeStream.backToTop();
 		if (LifeStream.allow_infinite_scroll) LifeStream.infiniteScroll();
 	},
 	
@@ -91,6 +92,7 @@ var LifeStream = {
 				if ($(window).scrollTop() >= ($(document).height() - $(window).height()) - 100) {
 					LifeStream.showHiddenItems();
 					LifeStream.getItems();
+					LifeStream.compactList();
 				}
 			}
 		});
@@ -116,6 +118,38 @@ var LifeStream = {
 	showHiddenItems : function()
 	{
 		$('#lifestream .js_hide').removeClass('js_hide');
+	},
+	
+	compactList : function()
+	{
+		$('#lifestream .compact ol').hide()
+		$('#lifestream .compact').each(function(){
+			if ($('.view', this).length == 0) {
+				$(this).append('<p class="view"><a href="#">Show all tracks</a></p>');
+				$('.view a', this).click(function(event) {
+					event.preventDefault();
+					LifeStream.toggleCompactList(this);
+				});
+			}
+		});
+	},
+	
+	toggleCompactList : function(element)
+	{
+		var parent = $(element).parents('div.compact');
+		if ($('ol', parent).is(':hidden')) {
+			$('ol', parent).animate({
+				height : "toggle",
+				opacity : "toggle"
+			}, 1200);
+			$(element).text('Hide all tracks');
+		} else {
+			$('ol', parent).animate({
+				height : "toggle",
+				opacity : "toggle"
+			}, 1200);
+			$(element).text('Show all tracks');
+		}
 	}
 };
 

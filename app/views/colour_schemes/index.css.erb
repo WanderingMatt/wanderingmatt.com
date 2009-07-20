@@ -16,17 +16,20 @@ body.<%= key %> p { color:#<%= (scheme[:typography]) ? scheme[:typography] : sch
 body.<%= key %> a { color:#<%= (scheme[:link]) ? scheme[:link] : scheme[:h2_link] %>; border-bottom-color:#<%= scheme[:link_border] %>; }
 body.<%= key %> a:hover,
 body.<%= key %> #lifestream li p.tags a:hover,
-body.<%= key %> #lifestream li p.date-time a:hover { color:#<%= (scheme[:link_hover]) ? scheme[:link_hover] : scheme[:accent] %>; border-bottom-color:#<%= (scheme[:link_hover]) ? scheme[:link_hover] : scheme[:accent] %>; }
+body.<%= key %> #lifestream li p.date-time a:hover,
+body.<%= key %> #lifestream li.lastfm div.compact p.view a:hover { color:#<%= (scheme[:link_hover]) ? scheme[:link_hover] : scheme[:accent] %>; border-bottom-color:#<%= (scheme[:link_hover]) ? scheme[:link_hover] : scheme[:accent] %>; }
 body.<%= key %> #header p { color:#<%= (scheme[:header]) ? scheme[:header] : scheme[:h2] %>; }
 body.<%= key %> #header p span { background-color:#<%= scheme[:header_background] %>; }
 body.<%= key %> #header p a,
 body.<%= key %> #header p a:hover { color:#<%= scheme[:header_link] %>; }
 body.<%= key %> #header ul { width:auto; }
 body.<%= key %> #lifestream li { border-top-color:#<%= scheme[:border] %>; }
-body.<%= key %> #lifestream li p.date-time { color:#<%= scheme[:datetime] %>; border-top-color:#<%= scheme[:link_border] %>; }
+body.<%= key %> #lifestream li p.date-time,
+body.<%= key %> #lifestream li.lastfm div.compact p.view a { color:#<%= scheme[:datetime] %>; border-top-color:#<%= scheme[:link_border] %>; }
 body.<%= key %> #lifestream li p.date-time a { color:#<%= scheme[:datetime] %>; }
 body.<%= key %> #lifestream li p.tags { color:#<%= (scheme[:tags]) ? scheme[:tags] : scheme[:datetime] %>; }
 body.<%= key %> #lifestream li p.tags a { color:#<%= (scheme[:tags]) ? scheme[:tags] : scheme[:datetime] %>; }
-body.<%= key %> #lifestream li div.compact ol { border-top-color:#<%= scheme[:link_border] %>; }
+body.<%= key %> #lifestream li div.compact ol,
+body.<%= key %> #lifestream li.lastfm div.compact p.view { border-top-color:#<%= scheme[:link_border] %>; }
 
 <% end -%>

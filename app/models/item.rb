@@ -35,7 +35,7 @@ class Item < ActiveRecord::Base
       end
     end
     
-    items, offset = self.group_items(offset, limit, items, lastfm_item) if items.length < limit && offset < 100
+    items, offset = self.group_items(offset, limit, items, lastfm_item) if items.length < limit && offset < 200
     return items, offset
   end
   

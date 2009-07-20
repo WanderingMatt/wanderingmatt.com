@@ -3,7 +3,7 @@
 	classes = [item.feed.permalink, 'clearfix']
 	classes << 'js_hide' if index && index >= 20
 	
-	id = (item == @items.last) ? ' id="item-'+(offset-1).to_s+'"' : '';
+	id = (item == @items.last) ? ' id="item-'+offset.to_s+'"' : '';
 	item_unique_id = (item_unique_id - item.grouped_items.length).to_s + '&ndash;' + item_unique_id.to_s unless item.grouped_items.empty?
 	
 %>
