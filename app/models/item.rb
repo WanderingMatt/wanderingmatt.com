@@ -11,8 +11,9 @@ class Item < ActiveRecord::Base
     [items, total, offset]
   end
   
-  def self.group_items(offset, limit, items = [], lastfm_item = nil)
+  def self.group_items(offset, limit, items = [], lastfm_item = nil, level = 0)
     
+    level+=1
     ungrouped_items = self.find_lifestream(offset, limit)
 
     unless ungrouped_items.empty?
@@ -35,7 +36,7 @@ class Item < ActiveRecord::Base
       end
     end
     
-    items, offset = self.group_items(offset, limit, items, lastfm_item) if items.length < limit && offset < 200
+    items, offset = self.group_items(offset, limit, items, lastfm_item, level) if items.length < limit && level < 10
     return items, offset
   end
   
