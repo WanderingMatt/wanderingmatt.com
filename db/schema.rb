@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20080915185016) do
   end
 
   create_table "items", :force => true do |t|
-    t.integer  "feed_id",      :limit => 11
+    t.integer  "feed_id"
     t.string   "title"
     t.text     "url"
     t.datetime "created_at"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20080915185016) do
     t.string   "tags"
     t.datetime "published_at"
     t.datetime "cached_at"
-    t.integer  "image_id",     :limit => 11
+    t.integer  "image_id"
   end
 
 end
